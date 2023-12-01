@@ -25,7 +25,6 @@ const SideBar = () => {
       sx={{
         minWidth: 250,
         backgroundColor: theme === "light" ? "success.main" : "primary.dark",
-        borderTopRightRadius: "20px",
         minHeight: "100%",
       }}
     >

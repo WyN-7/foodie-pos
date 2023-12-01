@@ -34,10 +34,11 @@ const OrdersPage = () => {
     <Box>
       <Box sx={{ display: "flex", justifyContent: "flex-end" }}>
         <ToggleButtonGroup
-          color="primary"
+          color="success"
           value={value}
           exclusive
           onChange={(evt, value) => setValue(value)}
+          sx={{ bgcolor: "primary.main" }}
         >
           <ToggleButton value={ORDERSTATUS.PENDING}>
             {ORDERSTATUS.PENDING}

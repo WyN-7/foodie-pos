@@ -38,7 +38,7 @@ const Footer = () => {
               +95 123 456 79
             </Typography>
           </Box>
-          <Image alt="logo" src={"/logo.png"} width={150} height={80} />
+          <Image alt="logo" src={"/Logo.png"} width={100} height={100} />
           <Box>
             <Link href={"/order?tableId=1"} style={{ textDecoration: "none" }}>
               <Typography sx={{ color: "#E8F6EF", fontStyle: "italic" }}>

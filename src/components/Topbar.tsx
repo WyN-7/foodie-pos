@@ -1,4 +1,5 @@
 import { useAppSelector } from "@/store/hooks";
+import ExitToAppIcon from "@mui/icons-material/ExitToApp";
 import MenuIcon from "@mui/icons-material/Menu";
 import { Box, Button, Drawer, IconButton, Typography } from "@mui/material";
 import { signOut, useSession } from "next-auth/react";
@@ -16,7 +17,7 @@ const Topbar = () => {
   return (
     <Box
       sx={{
-        bgcolor: theme === "light" ? "success.dark" : "primary.dark",
+        bgcolor: theme === "dark" ? "primary.dark" : "success.dark",
         display: "flex",
         alignItems: "center",
         justifyContent: "space-between",
@@ -24,7 +25,7 @@ const Topbar = () => {
       }}
     >
       <Box sx={{ height: 70 }}>
-        <Image src={"/logo.png"} alt="logo" width={150} height={70} />
+        <Image src={"/Logo.png"} alt="logo" width={75} height={75} />
       </Box>
       <Box
         sx={{ display: "flex", alignItems: "center", flexDirection: "column" }}
@@ -53,6 +54,22 @@ const Topbar = () => {
           >
             Sign out
           </Button>
+          <ExitToAppIcon
+            sx={{
+              cursor: "pointer",
+              color: "#fff",
+              display: {
+                xs: "block",
+                sm: "none",
+                position: "absolute",
+                top: 18,
+                fontSize: "2rem",
+                alignItems: "center",
+                right: 60,
+              },
+            }}
+            onClick={() => signOut({ callbackUrl: "/backoffice" })}
+          />
         </Box>
       ) : (
         <span />

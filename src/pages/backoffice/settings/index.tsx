@@ -2,6 +2,8 @@ import { useAppDispatch, useAppSelector } from "@/store/hooks";
 import { setTheme } from "@/store/slices/appSlice";
 import { updateCompany } from "@/store/slices/companySlice";
 import { UpdateCompanyOptions } from "@/types/company";
+import DarkModeIcon from "@mui/icons-material/DarkMode";
+import LightModeIcon from "@mui/icons-material/LightMode";
 import {
   Box,
   Button,
@@ -13,23 +15,23 @@ import { useEffect, useState } from "react";
 
 const SettingsPage = () => {
   const { theme } = useAppSelector((state) => state.app);
-  const comapny = useAppSelector((state) => state.company.item);
+  const company = useAppSelector((state) => state.company.item);
   const [data, setData] = useState<UpdateCompanyOptions>();
   const dispatch = useAppDispatch();
 
   useEffect(() => {
-    if (comapny) {
+    if (company) {
       setData({
-        id: comapny.id,
-        name: comapny.name,
-        street: comapny.street,
-        township: comapny.township,
-        city: comapny.city,
+        id: company.id,
+        name: company.name,
+        street: company.street,
+        township: company.township,
+        city: company.city,
       });
     }
-  }, [comapny]);
+  }, [company]);
 
-  if (!comapny || !data) return null;
+  if (!company || !data) return null;
 
   const handleUpdateCompany = () => {
     dispatch(updateCompany(data));
@@ -49,35 +51,55 @@ const SettingsPage = () => {
               }}
             />
           }
-          label="Use dark mode"
+          label=""
+        />
+        <LightModeIcon
+          sx={{
+            position: "absolute",
+            right: 95,
+            color: "orange",
+            borderRadius: "2rem",
+            top: 32,
+          }}
+        ></LightModeIcon>
+        <DarkModeIcon
+          sx={{
+            position: "absolute",
+            right: 15,
+            color: "#fff",
+            bgcolor: "#000",
+            border: "2px solid #001",
+            borderRadius: "2rem",
+            top: 30,
+          }}
         />
       </Box>
       <TextField
         defaultValue={data.name}
-        sx={{ mb: 2 }}
+        sx={{ mb: 2, bgcolor: "ghostwhite" }}
         onChange={(evt) =>
-          setData({ ...data, id: comapny.id, name: evt.target.value })
+          setData({ ...data, id: company.id, name: evt.target.value })
         }
       />
       <TextField
         defaultValue={data.street}
-        sx={{ mb: 2 }}
+        sx={{ mb: 2, bgcolor: "ghostwhite" }}
         onChange={(evt) =>
-          setData({ ...data, id: comapny.id, street: evt.target.value })
+          setData({ ...data, id: company.id, street: evt.target.value })
         }
       />
       <TextField
         defaultValue={data.township}
-        sx={{ mb: 2 }}
+        sx={{ mb: 2, bgcolor: "ghostwhite" }}
         onChange={(evt) =>
-          setData({ ...data, id: comapny.id, township: evt.target.value })
+          setData({ ...data, id: company.id, township: evt.target.value })
         }
       />
       <TextField
         defaultValue={data.city}
-        sx={{ mb: 2 }}
+        sx={{ mb: 2, bgcolor: "ghostwhite" }}
         onChange={(evt) =>
-          setData({ ...data, id: comapny.id, city: evt.target.value })
+          setData({ ...data, id: company.id, city: evt.target.value })
         }
       />
       <Button
