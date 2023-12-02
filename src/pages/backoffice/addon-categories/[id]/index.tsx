@@ -87,20 +87,27 @@ const AddonCategoryDetail = () => {
 
   return (
     <Box sx={{ display: "flex", flexDirection: "column" }}>
-      <Box sx={{ display: "flex", justifyContent: "flex-end", mb: 2 }}>
+      <Box
+        sx={{
+          display: "flex",
+          justifyContent: "flex-end",
+          mb: 2,
+        }}
+      >
         <Button variant="outlined" color="error" onClick={() => setOpen(true)}>
           Delete
         </Button>
       </Box>
       <TextField
         defaultValue={addonCategory.name}
-        sx={{ mb: 2 }}
+        sx={{ mb: 2, bgcolor: "#fff" }}
         onChange={(evt) => setData({ ...data, name: evt.target.value })}
       />
       <FormControl fullWidth sx={{ my: 1 }}>
         <InputLabel>Menus</InputLabel>
         <Select
           multiple
+          sx={{ bgcolor: "#fff" }}
           value={data.menuIds}
           label="Menus"
           onChange={handleOnChange}

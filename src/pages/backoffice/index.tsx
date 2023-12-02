@@ -1,11 +1,10 @@
 import { Box, Button } from "@mui/material";
-import { useSession } from "next-auth/react";
+import { signIn, useSession } from "next-auth/react";
 import { useRouter } from "next/router";
 
 export default function Home() {
   const { data } = useSession();
   const router = useRouter();
-
   if (!data) {
     return (
       <Box
@@ -18,7 +17,7 @@ export default function Home() {
       >
         <Button
           variant="contained"
-          onClick={() => router.push("/backoffice/auth/sign-in")}
+          onClick={() => signIn("google", { callbackUrl: "/backoffice" })}
         >
           Sign in
         </Button>
@@ -28,6 +27,3 @@ export default function Home() {
     router.push("/backoffice/orders");
   }
 }
-
-/*           onClick={() => signIn("google", { callbackUrl: "/auth/sign-in" })}
- */

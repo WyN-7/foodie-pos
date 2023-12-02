@@ -23,7 +23,7 @@ export const fileUpload = multer({
     bucket: "msquarefdc",
     acl: "public-read",
     key: (request, file, cb) => {
-      cb(null, `foodie-pos/msquarefdc/${Date.now()}_${file.originalname}`);
+      cb(null, `foodie-pos/walker/${Date.now()}_${file.originalname}`);
     },
   }),
 }).array("files", 1);
@@ -33,7 +33,7 @@ export const generateLinkForQRCode = (tableId: number) => {
 };
 
 export const getQrCodeUrl = (tableId: number) => {
-  return `https://msquarefdc.sgp1.cdn.digitaloceanspaces.com/foodie-pos/msquarefdc/qrcode/tableId-${tableId}.png`;
+  return `https://msquarefdc.sgp1.cdn.digitaloceanspaces.com/foodie-pos/walker/qrcode/tableId-${tableId}.png`;
 };
 
 export const qrCodeImageUpload = async (tableId: number) => {
@@ -43,7 +43,7 @@ export const qrCodeImageUpload = async (tableId: number) => {
     });
     const input = {
       Bucket: "msquarefdc",
-      Key: `foodie-pos/msquarefdc/qrcode/tableId-${tableId}.png`,
+      Key: `foodie-pos/walker/qrcode/tableId-${tableId}.png`,
       ACL: "public-read",
       Body: Buffer.from(
         qrImageData.replace(/^data:image\/\w+;base64,/, ""),
@@ -61,7 +61,7 @@ export const qrCodeImageUpload = async (tableId: number) => {
 export const deleteOldMenuImage = async (assetUrl: string) => {
   try {
     const input = {
-      Bucket: "msquarefdc",
+      Bucket: "",
       Key: assetUrl.split(".com/")[1],
     };
     const command = new DeleteObjectCommand(input);

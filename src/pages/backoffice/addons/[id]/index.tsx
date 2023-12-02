@@ -70,14 +70,14 @@ const AddonDetail = () => {
       </Box>
       <TextField
         defaultValue={data.name}
-        sx={{ mb: 2 }}
+        sx={{ mb: 2, bgcolor: "#fff" }}
         onChange={(evt) =>
           setData({ ...data, id: addon.id, name: evt.target.value })
         }
       />
       <TextField
         defaultValue={data.price}
-        sx={{ mb: 2 }}
+        sx={{ mb: 2, bgcolor: "#fff" }}
         onChange={(evt) =>
           setData({ ...data, id: addon.id, price: Number(evt.target.value) })
         }
@@ -87,6 +87,7 @@ const AddonDetail = () => {
         <Select
           value={data.addonCategoryId}
           label="Addon Category"
+          sx={{ bgcolor: "#fff" }}
           onChange={handleOnChange}
           renderValue={(selectedAddonCategoryId) => {
             return (

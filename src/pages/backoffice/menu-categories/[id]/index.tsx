@@ -57,6 +57,7 @@ const MenuCategoryDetail = () => {
       updateMenuCategory({
         ...data,
         locationId: Number(localStorage.getItem("selectedLocationId")),
+        onSuccess: () => router.push("/backoffice/menu-categories"),
       })
     );
   };
@@ -73,13 +74,13 @@ const MenuCategoryDetail = () => {
   return (
     <Box sx={{ display: "flex", flexDirection: "column" }}>
       <Box sx={{ display: "flex", justifyContent: "flex-end", mb: 2 }}>
-        <Button variant="outlined" color="error" onClick={() => setOpen(true)}>
+        <Button variant="contained" color="error" onClick={() => setOpen(true)}>
           Delete
         </Button>
       </Box>
       <TextField
         defaultValue={menuCategory.name}
-        sx={{ mb: 2 }}
+        sx={{ mb: 2, bgcolor: "#fff" }}
         onChange={(evt) =>
           setData({ ...data, id: menuCategoryId, name: evt.target.value })
         }

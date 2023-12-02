@@ -17,8 +17,6 @@ const BackofficeLayout = ({ children }: Props) => {
   const router = useRouter();
   const { theme } = useAppSelector((state) => state.app);
   const { init } = useAppSelector((state) => state.app);
-  const isSignInPage = router.pathname === "/backoffice/auth/sign-in";
-  const isSignUpPage = router.pathname === "/backoffice/auth/sign-up";
 
   useEffect(() => {
     if (session && !init) {
@@ -31,7 +29,7 @@ const BackofficeLayout = ({ children }: Props) => {
 
   return (
     <Box sx={{ minHeight: "100vh" }}>
-      {isSignInPage && isSignUpPage ? <></> : <Topbar />}
+      <Topbar />
       <Box sx={{ display: "flex", position: "relative", zIndex: 5, flex: 1 }}>
         {session && (
           <Box

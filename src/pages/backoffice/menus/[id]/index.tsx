@@ -79,7 +79,14 @@ const MenuDetail = () => {
   };
 
   const handleUpdateMenu = () => {
-    dispatch(updateMenu(data));
+    dispatch(
+      updateMenu({
+        ...data,
+        onSuccess: () => {
+          router.push("/backoffice/menus");
+        },
+      })
+    );
   };
 
   const handleDeleteMenu = () => {
@@ -87,6 +94,7 @@ const MenuDetail = () => {
       deleteMenu({
         id: menuId,
         onSuccess: () => {
+          router.push("/backoffice/menus");
           menuAddonCategories
             .filter((item) => item.menuId === menuId)
             .map((item) => item.addonCategoryId)
@@ -147,7 +155,7 @@ const MenuDetail = () => {
         <Button
           variant="outlined"
           component="label"
-          sx={{ width: "fit-content", mt: 2 }}
+          sx={{ width: "fit-content", mt: 2, bgcolor: "#fff" }}
         >
           Upload File
           <input type="file" hidden onChange={handleMenuImageUpdate} />
@@ -155,14 +163,14 @@ const MenuDetail = () => {
       </Box>
       <TextField
         defaultValue={menu.name}
-        sx={{ mb: 2 }}
+        sx={{ mb: 2, bgcolor: "ghostwhite" }}
         onChange={(evt) => {
           setData({ ...data, id: menuId, name: evt.target.value });
         }}
       />
       <TextField
         defaultValue={menu.price}
-        sx={{ mb: 2 }}
+        sx={{ mb: 2, bgcolor: "ghostwhite" }}
         onChange={(evt) =>
           setData({ ...data, id: menuId, price: Number(evt.target.value) })
         }
@@ -171,6 +179,7 @@ const MenuDetail = () => {
         <InputLabel>Menu Category</InputLabel>
         <Select
           multiple
+          sx={{ bgcolor: "info.light" }}
           value={data.menuCategoryIds}
           label="Menu Category"
           onChange={handleOnChange}
