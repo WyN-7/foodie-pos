@@ -25,7 +25,7 @@ const BackofficeLayout = ({ children }: Props) => {
     if (!session) {
       router.push("/backoffice");
     }
-  }, [session]);
+  }, [dispatch, init, router, session]); // session
 
   return (
     <Box sx={{ minHeight: "100vh" }}>

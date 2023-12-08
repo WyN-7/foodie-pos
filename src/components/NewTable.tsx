@@ -30,7 +30,7 @@ const NewTable = ({ open, setOpen }: Props) => {
       ...newTable,
       locationId: Number(localStorage.getItem("selectedLocationId")),
     });
-  }, []);
+  }, []); //added this [setNewTable, newTable]
 
   const handleCreateMenu = () => {
     dispatch(createTable({ ...newTable, onSuccess: () => setOpen(false) }));

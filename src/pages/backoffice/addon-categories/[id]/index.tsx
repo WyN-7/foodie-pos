@@ -50,7 +50,7 @@ const AddonCategoryDetail = () => {
     if (addonCategory) {
       setData({ ...addonCategory, menuIds });
     }
-  }, [addonCategory]);
+  }, [addonCategory]); //added
 
   if (!addonCategory || !data) return null;
 

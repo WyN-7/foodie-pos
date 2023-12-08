@@ -17,39 +17,48 @@ const Footer = () => {
     >
       <Box sx={{ display: "flex", gap: 2 }}>
         <Link href={"https://www.facebook.com"}>
-          <img
-            src="facebook.svg"
+          <Image
+            src="/facebook.svg"
             alt="facebook"
+            width={24} // Set the desired width
+            height={24} // Set the desired height
             style={{
               backgroundColor: "#004225",
               borderRadius: "5rem",
               padding: "0.5rem",
+              display: "flex", // Use "display" instead of "alignItems" and "justifyContent"
               alignItems: "center",
               justifyContent: "center",
             }}
           />
         </Link>
         <Link href={"https://www.instagram.com"}>
-          <img
-            src="instagram.svg"
+          <Image
+            src="/instagram.svg"
             alt="instagram"
+            width={24} // Set the desired width
+            height={24} // Set the desired height
             style={{
               backgroundColor: "#004225",
               borderRadius: "5rem",
               padding: "0.5rem",
+              display: "flex", // Use "display" instead of "alignItems" and "justifyContent"
               alignItems: "center",
               justifyContent: "center",
             }}
           />
         </Link>
         <Link href={"https://www.twitter.com"}>
-          <img
-            src="twitter.svg"
+          <Image
+            src="/twitter.svg"
             alt="twitter"
+            width={24} // Set the desired width
+            height={24} // Set the desired height
             style={{
               backgroundColor: "#004225",
               borderRadius: "5rem",
               padding: "0.5rem",
+              display: "flex", // Use "display" instead of "alignItems" and "justifyContent"
               alignItems: "center",
               justifyContent: "center",
             }}
@@ -58,13 +67,13 @@ const Footer = () => {
       </Box>
       <Box sx={{ display: "flex", flexDirection: "column" }}>
         <Typography sx={{ fontFamily: "merriweather", color: "#fff" }}>
-          Info ' Support ' Marketing
+          Info &lsquo; Support &lsquo; Marketing
         </Typography>
         <Typography sx={{ fontFamily: "merriweather", color: "#fff" }}>
-          Terms of Use ' Privacy Policy
+          Terms of Use &lsquo; Privacy Policy
         </Typography>
         <Typography sx={{ fontFamily: "merriweather", color: "lightgray" }}>
-          © 2024 Clarity Money
+          &copy; 2024 Clarity Money
         </Typography>
       </Box>
       <Box

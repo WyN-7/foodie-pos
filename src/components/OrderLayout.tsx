@@ -31,7 +31,7 @@ const OrderLayout = (props: Props) => {
     if (tableId) {
       dispatch(fetchAppData({ tableId: Number(tableId) }));
     }
-  }, [tableId]);
+  }, []); //added dispatch
 
   return (
     <Box sx={{ bgcolor: "#fffacd" }}>
