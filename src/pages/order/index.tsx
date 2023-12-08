@@ -55,8 +55,11 @@ const OrderApp = () => {
           variant="scrollable"
           sx={{
             ".Mui-selected": {
-              color: "#1B9C85",
+              color: "#8a2be2",
               fontWeight: "bold",
+              bgcolor: "transparent",
+              fontSize: "15px",
+              fontFamily: "poppins",
             },
           }}
         >

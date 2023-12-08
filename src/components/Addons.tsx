@@ -78,9 +78,12 @@ const Addons = ({
                   />
                 )
               }
-              label={addon.name}
+              label=""
             />
-            <Typography sx={{ fontStyle: "italic" }}>{addon.price}</Typography>
+            <Typography sx={{ fontFamily: "poppins" }}>{addon.name}</Typography>
+            <Typography sx={{ fontFamily: "poppins" }}>
+              ${addon.price}
+            </Typography>
           </Box>
         );
       })}

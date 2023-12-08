@@ -15,14 +15,14 @@ const QuantitySelector = ({ value, onIncrease, onDecrease }: Props) => {
         justifyContent: "space-between",
         alignItems: "center",
         maxWidth: "100px",
-        mt: 5,
+        mt: 3,
       }}
     >
-      <IconButton color="primary" onClick={onDecrease}>
+      <IconButton color="success" onClick={onDecrease}>
         <RemoveCircle />
       </IconButton>
       <Typography variant="h5">{value}</Typography>
-      <IconButton color="primary" onClick={onIncrease}>
+      <IconButton color="success" onClick={onIncrease}>
         <AddCircle />
       </IconButton>
     </Box>

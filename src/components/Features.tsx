@@ -56,7 +56,15 @@ const Features = () => {
             <Box sx={{ textAlign: "center", maxWidth: 330, mb: 10, px: 5 }}>
               {item.icon}
 
-              <Typography variant="h6">{item.text}</Typography>
+              <Typography
+                variant="h6"
+                sx={{
+                  fontFamily: "poppins",
+                  fontWeight: 300,
+                }}
+              >
+                {item.text}
+              </Typography>
             </Box>
           </Zoom>
         );

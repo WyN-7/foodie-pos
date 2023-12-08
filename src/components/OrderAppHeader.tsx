@@ -126,13 +126,17 @@ const OrderAppHeader = ({ cartItemCount }: Props) => {
               />
               {cartItemCount > 0 && (
                 <Typography
-                  variant="h5"
+                  variant="h6"
                   sx={{
                     textAlign: "right",
                     color: "#E8F6EF",
                     position: "absolute",
-                    top: -10,
-                    right: -10,
+                    top: -5,
+                    right: -15,
+                    px: 1.2,
+                    fontFamily: "poppins",
+                    bgcolor: "#cb2027",
+                    borderRadius: "50px",
                   }}
                 >
                   {cartItemCount}
@@ -159,13 +163,18 @@ const OrderAppHeader = ({ cartItemCount }: Props) => {
                   fontWeight: "bold",
                   color: "#4C4C6D",
                   mt: 15,
+                  fontFamily: "merriweather",
                 }}
               >
                 {company?.name}
               </Typography>
               <Typography
                 variant="body1"
-                sx={{ fontStyle: "italic", lineHeight: 1.2 }}
+                sx={{
+                  fontStyle: "italic",
+                  lineHeight: 1.2,
+                  fontFamily: "merriweather",
+                }}
               >
                 {company?.street}
                 <br /> {company?.township}, {company?.city}

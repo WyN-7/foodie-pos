@@ -67,15 +67,19 @@ const Cart = () => {
         justifyContent: "center",
         p: 3,
         bgcolor: "#E8F6EF",
-        borderRadius: 15,
+        borderRadius: 8,
         mx: 3,
+        width: "500px",
+        m: "0 auto",
         position: "relative",
         top: { xs: 30, sm: 150 },
         zIndex: 5,
       }}
     >
       {!cartItems.length ? (
-        <Typography>Your cart is empty.</Typography>
+        <Typography sx={{ fontFamily: "merriweather" }}>
+          Your cart is empty.
+        </Typography>
       ) : (
         <Box
           sx={{
@@ -84,7 +88,12 @@ const Cart = () => {
         >
           <Typography
             color={"primary"}
-            sx={{ textAlign: "center", mb: 3, fontSize: { xs: 18, sm: 22 } }}
+            sx={{
+              textAlign: "center",
+              mb: 3,
+              fontSize: { xs: 18, sm: 22 },
+              fontFamily: "merriweather",
+            }}
           >
             Review your order
           </Typography>

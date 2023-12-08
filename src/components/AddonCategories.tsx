@@ -26,12 +26,26 @@ const AddonCategories = ({
                 justifyContent: "space-between",
               }}
             >
-              <Typography variant="h6" sx={{ userSelect: "none" }}>
+              <Typography
+                sx={{
+                  userSelect: "none",
+                  fontFamily: "poppins",
+                  fontWeight: "500",
+                  fontSize: 20,
+                }}
+              >
                 {item.name}
               </Typography>
-              <Chip label={item.isRequired ? "Required" : "Optional"} />
+              <Chip
+                label={item.isRequired ? "Required" : "Optional"}
+                sx={{
+                  bgcolor: "red",
+                  color: "#fff",
+                  fontFamily: "merriweather",
+                }}
+              />
             </Box>
-            <Box sx={{ pl: 1, mt: 2 }}>
+            <Box sx={{ mt: 2 }}>
               <Addons
                 addonCategoryId={item.id}
                 selectedAddons={selectedAddons}

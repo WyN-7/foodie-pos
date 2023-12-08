@@ -15,6 +15,7 @@ const FoodiePOS = () => {
         minHeight: "100vh",
         overflowY: "auto",
         flexDirection: "column",
+        bgcolor: "#fffacd",
       }}
     >
       <Header />

@@ -30,12 +30,19 @@ const Topbar = () => {
       <Box
         sx={{ display: "flex", alignItems: "center", flexDirection: "column" }}
       >
-        <Typography variant="h5" color={"secondary"}>
+        <Typography
+          variant="h5"
+          color={"secondary"}
+          sx={{ fontFamily: "poppins" }}
+        >
           Foodie POS
         </Typography>
         {showLocation && (
-          <Typography color={"secondary"} sx={{ fontSize: 12 }}>
-            {selectedLocation?.name}
+          <Typography
+            color={"secondary"}
+            sx={{ fontSize: 12, fontFamily: "poppins" }}
+          >
+            {`Current Location | ${selectedLocation?.name}`}
           </Typography>
         )}
       </Box>

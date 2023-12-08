@@ -42,10 +42,10 @@ const Testimonials = () => {
             <Paper
               sx={{
                 width: 300,
-                height: 180,
+                height: 200,
                 p: 2,
                 mb: 3,
-                borderRadius: 3,
+                borderRadius: 5,
                 position: "relative",
                 bgcolor: "#1B9C85",
               }}
@@ -66,6 +66,7 @@ const Testimonials = () => {
                       fontSize: "14px",
                       fontStyle: "italic",
                       color: "#E8F6EF",
+                      fontFamily: "merriweather",
                     }}
                   >
                     {item.name}
@@ -75,6 +76,7 @@ const Testimonials = () => {
                       fontSize: "14px",
                       fontStyle: "italic",
                       color: "#E8F6EF",
+                      fontFamily: "merriweather",
                     }}
                   >
                     {item.company}
@@ -83,7 +85,12 @@ const Testimonials = () => {
               </Box>
               <Typography
                 variant="body1"
-                sx={{ fontSize: "16px", color: "#E8F6EF" }}
+                sx={{
+                  fontSize: "16px",
+                  color: "#E8F6EF",
+                  fontWeight: "light",
+                  fontFamily: "poppins",
+                }}
               >
                 {item.description}
               </Typography>

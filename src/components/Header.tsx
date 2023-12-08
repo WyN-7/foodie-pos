@@ -52,9 +52,23 @@ const Header = () => {
           fontWeight: "bold",
           color: "#4C4C6D",
           mt: 4,
+          fontFamily: "Merriweather",
         }}
       >
         Foodie POS
+      </Typography>
+      <Typography
+        variant="h4"
+        sx={{
+          position: "absolute",
+          fontWeight: "lightbold",
+          color: "#4C4C6D",
+          mt: 13,
+          fontStyle: "italic",
+          fontFamily: "Merriweather",
+        }}
+      >
+        Welcome To Foodie Pos
       </Typography>
     </Box>
   );

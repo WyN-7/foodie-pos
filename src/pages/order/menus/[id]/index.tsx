@@ -1,4 +1,5 @@
 import AddonCategories from "@/components/AddonCategories";
+import OrderDetailCard from "@/components/OrderDetailCard";
 import QuantitySelector from "@/components/QuantitySelector";
 import { useAppDispatch, useAppSelector } from "@/store/hooks";
 import { addToCart } from "@/store/slices/cartSlice";
@@ -6,7 +7,6 @@ import { CartItem } from "@/types/cart";
 import { Box, Button } from "@mui/material";
 import { Addon } from "@prisma/client";
 import { nanoid } from "nanoid";
-import Image from "next/image";
 import { useRouter } from "next/router";
 import { useEffect, useState } from "react";
 
@@ -81,56 +81,64 @@ const MenuDetail = () => {
   if (!isReady || !menu) return null;
 
   return (
-    <Box sx={{ position: "relative", zIndex: 5 }}>
-      <Box
-        sx={{
+    <Box
+      sx={{
+        zIndex: 5,
+        position: "relative",
+      }}
+    >
+      <div
+        style={{
           display: "flex",
           justifyContent: "center",
-          flexDirection: "column",
-          p: 4,
+          alignItems: "center",
+          height: "100vh",
+          position: "absolute",
+
+          left: 0,
+          right: 0,
         }}
       >
-        <Image
-          src={menu.assetUrl || "/default-menu.png"}
-          alt="menu-image"
-          width={150}
-          height={150}
-          style={{
-            borderRadius: "50%",
-            margin: "0 auto",
-          }}
-        />
         <Box
           sx={{
-            mt: 5,
             display: "flex",
+            minHeight: "300px",
+            px: 10,
+            py: 2,
+            borderRadius: 3,
+            minWidth: "400px",
+            justifyContent: "center",
             flexDirection: "column",
             alignItems: "center",
           }}
         >
+          <OrderDetailCard menu={menu} />
           <AddonCategories
             addonCategories={addonCategories}
             selectedAddons={selectedAddons}
             setSelectedAddons={setSelectedAddons}
           />
-          <QuantitySelector
-            value={quantity}
-            onDecrease={handleQuantityDecrease}
-            onIncrease={handleQuantityIncrease}
-          />
-          <Button
-            variant="contained"
-            disabled={isDisabled}
-            onClick={handleAddToCart}
-            sx={{
-              width: "fit-content",
-              mt: 3,
-            }}
-          >
-            {cartItem ? "Update cart" : "Add to cart"}
-          </Button>
+          <Box sx={{ mb: 3, display: "flex", gap: 3 }}>
+            <QuantitySelector
+              value={quantity}
+              onDecrease={handleQuantityDecrease}
+              onIncrease={handleQuantityIncrease}
+            />
+            <Button
+              variant="contained"
+              disabled={isDisabled}
+              onClick={handleAddToCart}
+              sx={{
+                width: "fit-content",
+                mt: 3,
+                bgcolor: "#2e8b57",
+              }}
+            >
+              {cartItem ? "Update cart" : "Add to cart"}
+            </Button>
+          </Box>
         </Box>
-      </Box>
+      </div>
     </Box>
   );
 };

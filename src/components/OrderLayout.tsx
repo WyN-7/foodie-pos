@@ -34,16 +34,22 @@ const OrderLayout = (props: Props) => {
   }, [tableId]);
 
   return (
-    <Box>
+    <Box sx={{ bgcolor: "#fffacd" }}>
       <OrderAppHeader cartItemCount={cartItems.length} />
       <Box
         sx={{
           position: "relative",
           top: isHome ? { sm: 240 } : 0,
+          bgcolor: "#fffacd",
           mb: 10,
         }}
       >
-        <Box sx={{ width: { xs: "100%", md: "80%", lg: "55%" }, m: "0 auto" }}>
+        <Box
+          sx={{
+            width: { xs: "100%", md: "80%", lg: "75%" },
+            m: "0 auto",
+          }}
+        >
           {props.children}
         </Box>
       </Box>

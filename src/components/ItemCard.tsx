@@ -43,7 +43,15 @@ const ItemCard = ({
           }}
         >
           {icon}
-          <Typography sx={{ fontWeight: "700" }}>{title}</Typography>
+          <Typography
+            sx={{
+              fontWeight: "500",
+              fontSize: 20,
+              fontFamily: "poppins",
+            }}
+          >
+            {title}
+          </Typography>
           {subtitle && (
             <Typography sx={{ fontSize: 14 }}>{subtitle}</Typography>
           )}
@@ -82,7 +90,11 @@ const ItemCard = ({
         />
       )}
       {icon}
-      <Typography sx={{ fontWeight: "700" }}>{title}</Typography>
+      <Typography
+        sx={{ fontWeight: "500", fontSize: 20, fontFamily: "poppins" }}
+      >
+        {title}
+      </Typography>
       {subtitle && <Typography sx={{ fontSize: 14 }}>{subtitle}</Typography>}
     </Paper>
   );

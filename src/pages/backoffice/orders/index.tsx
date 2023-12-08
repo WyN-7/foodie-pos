@@ -3,7 +3,13 @@ import { useAppDispatch, useAppSelector } from "@/store/hooks";
 import { updateOrder } from "@/store/slices/orderSlice";
 import { OrderItem } from "@/types/order";
 import { formatOrders } from "@/utils/generals";
-import { Box, ToggleButton, ToggleButtonGroup } from "@mui/material";
+import HourglassEmptyIcon from "@mui/icons-material/HourglassEmpty";
+import {
+  Box,
+  ToggleButton,
+  ToggleButtonGroup,
+  Typography,
+} from "@mui/material";
 import { ORDERSTATUS } from "@prisma/client";
 import { useEffect, useState } from "react";
 
@@ -51,24 +57,42 @@ const OrdersPage = () => {
           </ToggleButton>
         </ToggleButtonGroup>
       </Box>
-      <Box
-        sx={{
-          display: "flex",
-          flexWrap: "wrap",
-          justifyContent: { xs: "center", sm: "flex-start" },
-        }}
-      >
-        {filteredOrders.map((orderItem) => {
-          return (
-            <OrderCard
-              key={orderItem.itemId}
-              orderItem={orderItem}
-              isAdmin
-              handleOrderStatuUpdate={handleOrderStatuUpdate}
-            />
-          );
-        })}
-      </Box>
+      {orders.length ? (
+        <Box
+          sx={{
+            display: "flex",
+            flexWrap: "wrap",
+            justifyContent: { xs: "center", sm: "flex-start" },
+          }}
+        >
+          {filteredOrders.map((orderItem) => {
+            return (
+              <OrderCard
+                key={orderItem.itemId}
+                orderItem={orderItem}
+                isAdmin
+                handleOrderStatuUpdate={handleOrderStatuUpdate}
+              />
+            );
+          })}
+        </Box>
+      ) : (
+        <Box
+          sx={{
+            display: "flex",
+            justifyContent: "center",
+            alignItems: "center",
+            height: "70vh",
+            flexDirection: "column",
+            gap: 2,
+          }}
+        >
+          <HourglassEmptyIcon sx={{ fontSize: 90, color: "ActiveCaption" }} />
+          <Typography variant="h4" fontFamily="poppins">
+            No Pending Orders.
+          </Typography>
+        </Box>
+      )}
     </Box>
   );
 };

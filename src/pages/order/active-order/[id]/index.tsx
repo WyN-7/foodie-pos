@@ -41,15 +41,23 @@ const ActiveOrder = () => {
           display: "flex",
           justifyContent: "center",
           p: 3,
-          bgcolor: "#E8F6EF",
-          borderRadius: 15,
-          mx: 3,
+          bgcolor: "teal",
+          borderRadius: 2,
+          mx: 30,
           flexDirection: "column",
           alignItems: "center",
         }}
       >
-        <Typography>OrderSeq: {orderSeq}</Typography>
-        <Typography>Total price: {orders[0].totalPrice}</Typography>
+        <Typography
+          sx={{ fontFamily: "poppins", fontWeight: "light", color: "#fff" }}
+        >
+          OrderSeq | {orderSeq}{" "}
+        </Typography>
+        <Typography
+          sx={{ fontFamily: "poppins", fontWeight: "light", color: "#fff" }}
+        >
+          Total price | {orders[0].totalPrice}
+        </Typography>
       </Box>
       <Box sx={{ display: "flex", flexWrap: "wrap", justifyContent: "center" }}>
         {orderItems.map((orderItem) => {

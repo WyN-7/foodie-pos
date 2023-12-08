@@ -56,7 +56,7 @@ const TableDetail = () => {
       </Box>
       <TextField
         defaultValue={data.name}
-        sx={{ mb: 2 }}
+        sx={{ mb: 2, bgcolor: "#fff" }}
         onChange={(evt) =>
           setData({ ...data, id: table.id, name: evt.target.value })
         }

@@ -6,53 +6,92 @@ const Footer = () => {
   return (
     <Box
       sx={{
-        height: 150,
-        bgcolor: "#4C4C6D",
-        px: "12px",
+        bgcolor: "#2e8b57",
+        display: "flex",
+        alignItems: "center",
+        height: "11rem",
+        justifyContent: "center",
+        flexDirection: "column",
+        gap: 2,
       }}
     >
+      <Box sx={{ display: "flex", gap: 2 }}>
+        <Link href={"https://www.facebook.com"}>
+          <img
+            src="facebook.svg"
+            alt="facebook"
+            style={{
+              backgroundColor: "#004225",
+              borderRadius: "5rem",
+              padding: "0.5rem",
+              alignItems: "center",
+              justifyContent: "center",
+            }}
+          />
+        </Link>
+        <Link href={"https://www.instagram.com"}>
+          <img
+            src="instagram.svg"
+            alt="instagram"
+            style={{
+              backgroundColor: "#004225",
+              borderRadius: "5rem",
+              padding: "0.5rem",
+              alignItems: "center",
+              justifyContent: "center",
+            }}
+          />
+        </Link>
+        <Link href={"https://www.twitter.com"}>
+          <img
+            src="twitter.svg"
+            alt="twitter"
+            style={{
+              backgroundColor: "#004225",
+              borderRadius: "5rem",
+              padding: "0.5rem",
+              alignItems: "center",
+              justifyContent: "center",
+            }}
+          />
+        </Link>
+      </Box>
+      <Box sx={{ display: "flex", flexDirection: "column" }}>
+        <Typography sx={{ fontFamily: "merriweather", color: "#fff" }}>
+          Info ' Support ' Marketing
+        </Typography>
+        <Typography sx={{ fontFamily: "merriweather", color: "#fff" }}>
+          Terms of Use ' Privacy Policy
+        </Typography>
+        <Typography sx={{ fontFamily: "merriweather", color: "lightgray" }}>
+          © 2024 Clarity Money
+        </Typography>
+      </Box>
       <Box
         sx={{
-          maxWidth: 1280,
-          m: "0 auto",
           display: "flex",
-          height: "100%",
-          alignItems: "center",
+          justifyContent: "end",
+          position: "absolute",
+          left: 0,
+          ml: "50px",
         }}
       >
-        <Box
-          sx={{
-            display: "flex",
-            justifyContent: "space-between",
-            width: "100%",
-            alignItems: "center",
-            flexWrap: "wrap",
-          }}
-        >
-          <Box>
-            <Typography sx={{ color: "#E8F6EF", fontStyle: "italic" }}>
-              Hintada Street 39 <br />
-              Sanchaung, Yangon <br />
-              contact@foodiepos.com
-              <br />
-              +95 123 456 79
-            </Typography>
-          </Box>
-          <Image alt="logo" src={"/Logo.png"} width={100} height={100} />
-          <Box>
-            <Link href={"/order?tableId=1"} style={{ textDecoration: "none" }}>
-              <Typography sx={{ color: "#E8F6EF", fontStyle: "italic" }}>
-                Order app
-              </Typography>
-            </Link>
-            <Link href={"/backoffice"} style={{ textDecoration: "none" }}>
-              <Typography sx={{ color: "#E8F6EF", fontStyle: "italic" }}>
-                Backoffice
-              </Typography>
-            </Link>
-          </Box>
-        </Box>
+        <Image src={"/logo.png"} alt="logo" width={130} height={130} />
       </Box>
+      <Typography
+        sx={{
+          display: "flex",
+          justifyContent: "end",
+          position: "absolute",
+          right: 0,
+          marginRight: "30px",
+          fontSize: "1.5rem",
+          fontFamily: "merriweather",
+          color: "#FFf",
+        }}
+      >
+        Foodie Pos
+      </Typography>
     </Box>
   );
 };
