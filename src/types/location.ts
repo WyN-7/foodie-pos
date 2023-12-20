@@ -15,3 +15,7 @@ export interface CreateNewLocationOptions extends BaseOptions {
   city: string;
   companyId: number;
 }
+
+export interface DeleteLocationOptions extends BaseOptions {
+  id: string;
+}

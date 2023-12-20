@@ -1,7 +1,6 @@
 import { Box, Typography } from "@mui/material";
 import Image from "next/image";
 import Link from "next/link";
-
 const Footer = () => {
   return (
     <Box
@@ -66,14 +65,32 @@ const Footer = () => {
         </Link>
       </Box>
       <Box sx={{ display: "flex", flexDirection: "column" }}>
-        <Typography sx={{ fontFamily: "merriweather", color: "#fff" }}>
-          Info &lsquo; Support &lsquo; Marketing
+        <Typography
+          sx={{
+            fontFamily: "merriweather",
+            color: "#fff",
+            textAlign: "center",
+          }}
+        >
+          Support & Marketing
         </Typography>
-        <Typography sx={{ fontFamily: "merriweather", color: "#fff" }}>
-          Terms of Use &lsquo; Privacy Policy
+        <Typography
+          sx={{
+            fontFamily: "merriweather",
+            color: "#fff",
+            textAlign: "center",
+          }}
+        >
+          Terms of Use & Privacy Policy
         </Typography>
-        <Typography sx={{ fontFamily: "merriweather", color: "lightgray" }}>
-          &copy; 2024 Clarity Money
+        <Typography
+          sx={{
+            fontFamily: "merriweather",
+            color: "lightgray",
+            textAlign: "center",
+          }}
+        >
+          &copy; 2024
         </Typography>
       </Box>
       <Box
@@ -85,22 +102,10 @@ const Footer = () => {
           ml: "50px",
         }}
       >
-        <Image src={"/logo.png"} alt="logo" width={130} height={130} />
+        <Box sx={{ display: { xs: "none", sm: "block" } }}>
+          <Image src={"/logo.png"} alt="logo" width={130} height={130} />
+        </Box>
       </Box>
-      <Typography
-        sx={{
-          display: "flex",
-          justifyContent: "end",
-          position: "absolute",
-          right: 0,
-          marginRight: "30px",
-          fontSize: "1.5rem",
-          fontFamily: "merriweather",
-          color: "#FFf",
-        }}
-      >
-        Foodie Pos
-      </Typography>
     </Box>
   );
 };

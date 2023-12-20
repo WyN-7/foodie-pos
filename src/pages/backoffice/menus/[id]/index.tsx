@@ -2,6 +2,7 @@ import { useAppDispatch, useAppSelector } from "@/store/hooks";
 import { removeAddonCategory } from "@/store/slices/addonCategorySlice";
 import { removeMenuAddonCategoryById } from "@/store/slices/menuAddonCategorySlice";
 import { deleteMenu, updateMenu } from "@/store/slices/menuSlice";
+import { setOpenSnackbar } from "@/store/slices/snackbarSlice";
 import { UpdateMenuOptions } from "@/types/menu";
 import { config } from "@/utils/config";
 import {
@@ -84,6 +85,22 @@ const MenuDetail = () => {
         ...data,
         onSuccess: () => {
           router.push("/backoffice/menus");
+          dispatch(
+            setOpenSnackbar({
+              message: "You Have Updated the Menu....",
+              autoHideDuration: 3000,
+              severity: "success",
+            })
+          );
+        },
+        onError: () => {
+          dispatch(
+            setOpenSnackbar({
+              message: "Error occurred when updating Menu.",
+              autoHideDuration: 2000,
+              severity: "error",
+            })
+          );
         },
       })
     );
@@ -95,6 +112,13 @@ const MenuDetail = () => {
         id: menuId,
         onSuccess: () => {
           router.push("/backoffice/menus");
+          dispatch(
+            setOpenSnackbar({
+              message: "You Have Deleted the Menu Category....",
+              autoHideDuration: 3000,
+              severity: "success",
+            })
+          );
           menuAddonCategories
             .filter((item) => item.menuId === menuId)
             .map((item) => item.addonCategoryId)
@@ -110,6 +134,15 @@ const MenuDetail = () => {
                 );
               }
             });
+        },
+        onError: () => {
+          dispatch(
+            setOpenSnackbar({
+              message: "Error occurred when deleting Menu.",
+              autoHideDuration: 2000,
+              severity: "error",
+            })
+          );
         },
       })
     );

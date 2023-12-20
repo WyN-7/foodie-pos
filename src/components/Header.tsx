@@ -45,27 +45,35 @@ const Header = () => {
           />
         </Box>
       </Slide>
+
       <Typography
-        variant="h2"
         sx={{
-          position: "absolute",
+          position: "fixed",
           fontWeight: "bold",
           color: "#4C4C6D",
           mt: 4,
           fontFamily: "Merriweather",
+          fontSize: { xs: 30, md: 40, lg: 50 },
+          bgcolor: "#fff",
+          p: 2,
+          px: 6,
+          borderRadius: 2,
         }}
       >
         Foodie POS
       </Typography>
       <Typography
-        variant="h4"
         sx={{
-          position: "absolute",
+          position: "fixed",
           fontWeight: "lightbold",
           color: "#4C4C6D",
           mt: 13,
           fontStyle: "italic",
           fontFamily: "Merriweather",
+          fontSize: { xs: 20, md: 30, lg: 40 },
+          bgcolor: "#fff",
+          p: 2,
+          borderRadius: 2,
         }}
       >
         Welcome To Foodie Pos

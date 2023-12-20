@@ -1,4 +1,5 @@
-import { useAppSelector } from "@/store/hooks";
+import { useAppDispatch, useAppSelector } from "@/store/hooks";
+import { setOpenSnackbar } from "@/store/slices/snackbarSlice";
 import { OrderItem } from "@/types/order";
 import { Box, Card, MenuItem, Select, Typography } from "@mui/material";
 import { AddonCategory, ORDERSTATUS } from "@prisma/client";
@@ -11,6 +12,7 @@ interface Props {
 
 const OrderCard = ({ orderItem, isAdmin, handleOrderStatuUpdate }: Props) => {
   const addonCategories = useAppSelector((state) => state.addonCategory.items);
+  const dispatch = useAppDispatch();
 
   return (
     <Card
@@ -120,13 +122,46 @@ const OrderCard = ({ orderItem, isAdmin, handleOrderStatuUpdate }: Props) => {
                 }
                 sx={{ maxHeight: 30 }}
               >
-                <MenuItem value={ORDERSTATUS.PENDING}>
+                <MenuItem
+                  value={ORDERSTATUS.PENDING}
+                  onClick={() => {
+                    dispatch(
+                      setOpenSnackbar({
+                        message: "Order has moved...",
+                        autoHideDuration: 3000,
+                        severity: "success",
+                      })
+                    );
+                  }}
+                >
                   {ORDERSTATUS.PENDING}
                 </MenuItem>
-                <MenuItem value={ORDERSTATUS.COOKING}>
+                <MenuItem
+                  value={ORDERSTATUS.COOKING}
+                  onClick={() => {
+                    dispatch(
+                      setOpenSnackbar({
+                        message: "Order has moved...",
+                        autoHideDuration: 3000,
+                        severity: "success",
+                      })
+                    );
+                  }}
+                >
                   {ORDERSTATUS.COOKING}
                 </MenuItem>
-                <MenuItem value={ORDERSTATUS.COMPLETE}>
+                <MenuItem
+                  value={ORDERSTATUS.COMPLETE}
+                  onClick={() => {
+                    dispatch(
+                      setOpenSnackbar({
+                        message: "Order has moved...",
+                        autoHideDuration: 3000,
+                        severity: "success",
+                      })
+                    );
+                  }}
+                >
                   {ORDERSTATUS.COMPLETE}
                 </MenuItem>
               </Select>

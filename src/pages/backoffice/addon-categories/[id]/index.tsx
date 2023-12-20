@@ -60,8 +60,25 @@ const AddonCategoryDetail = () => {
     dispatch(
       updateAddonCategory({
         ...data,
-        onSuccess: () =>
-          dispatch(setOpenSnackbar({ message: "Updated menu successfully." })),
+        onSuccess: () => {
+          router.push("/backoffice/addon-categories");
+          dispatch(
+            setOpenSnackbar({
+              message: "You Have Updated the Addon Category....",
+              autoHideDuration: 3000,
+              severity: "success",
+            })
+          );
+        },
+        onError: () => {
+          dispatch(
+            setOpenSnackbar({
+              message: "Error occurred when deleting The Addon Category.",
+              autoHideDuration: 2000,
+              severity: "error",
+            })
+          );
+        },
       })
     );
   };

@@ -67,6 +67,13 @@ const NewMenu = ({ open, setOpen }: Props) => {
         onSuccess: () => {
           setOpen(false);
           dispatch(setLoadingMenu(false));
+          dispatch(
+            setOpenSnackbar({
+              message: "You have created a new Menu.",
+              autoHideDuration: 2000,
+              severity: "success",
+            })
+          );
         },
         onError: () => {
           dispatch(

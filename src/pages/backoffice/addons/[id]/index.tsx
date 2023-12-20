@@ -1,5 +1,6 @@
 import { useAppDispatch, useAppSelector } from "@/store/hooks";
 import { deleteAddon, updateAddon } from "@/store/slices/addonSlice";
+import { setOpenSnackbar } from "@/store/slices/snackbarSlice";
 import { UpdateAddonOptions } from "@/types/addon";
 import {
   Box,
@@ -49,14 +50,55 @@ const AddonDetail = () => {
   };
 
   const handleUpdateAddon = () => {
-    dispatch(updateAddon(data));
+    dispatch(
+      updateAddon({
+        ...data,
+        onSuccess: () => {
+          router.push("/backoffice/addons");
+          dispatch(
+            setOpenSnackbar({
+              message: "You Have Updated the Addon....",
+              autoHideDuration: 3000,
+              severity: "success",
+            })
+          );
+        },
+        onError: () => {
+          dispatch(
+            setOpenSnackbar({
+              message: "Error occurred when updating Addon.",
+              autoHideDuration: 2000,
+              severity: "error",
+            })
+          );
+        },
+      })
+    );
   };
 
   const handleDeleteAddon = () => {
     dispatch(
       deleteAddon({
         id: addon.id,
-        onSuccess: () => router.push("/backoffice/addons"),
+        onSuccess: () => {
+          router.push("/backoffice/addons");
+          dispatch(
+            setOpenSnackbar({
+              message: "You Have Deleted the Addon....",
+              autoHideDuration: 3000,
+              severity: "success",
+            })
+          );
+        },
+        onError: () => {
+          dispatch(
+            setOpenSnackbar({
+              message: "Error occurred when Deleting Addon.",
+              autoHideDuration: 2000,
+              severity: "error",
+            })
+          );
+        },
       })
     );
   };

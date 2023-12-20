@@ -3,6 +3,7 @@ import {
   deleteMenuCategory,
   updateMenuCategory,
 } from "@/store/slices/menuCategorySlice";
+import { setOpenSnackbar } from "@/store/slices/snackbarSlice";
 import { UpdateMenuCategoryOptions } from "@/types/menuCategory";
 import {
   Box,
@@ -52,21 +53,61 @@ const MenuCategoryDetail = () => {
 
   if (!menuCategory || !data) return null;
 
+  const onSuccess = () => {
+    setOpen(false);
+    router.push("/backoffice/menu-categories"),
+      dispatch(
+        setOpenSnackbar({
+          message: "You Have Updated the Menu Category....",
+          autoHideDuration: 3000,
+          severity: "success",
+        })
+      );
+  };
   const handleUpdateMenuCategory = () => {
     dispatch(
       updateMenuCategory({
         ...data,
         locationId: Number(localStorage.getItem("selectedLocationId")),
-        onSuccess: () => router.push("/backoffice/menu-categories"),
+        onSuccess,
+        onError: () => {
+          dispatch(
+            setOpenSnackbar({
+              message: "Error occurred when updating Menu Category.",
+              autoHideDuration: 2000,
+              severity: "error",
+            })
+          );
+        },
       })
     );
   };
 
+  const onSuccessDelete = () => {
+    setOpen(false);
+    router.push("/backoffice/menu-categories"),
+      dispatch(
+        setOpenSnackbar({
+          message: "You Have Deleted the Menu Category....",
+          autoHideDuration: 3000,
+          severity: "success",
+        })
+      );
+  };
   const handleDeleteMenuCategory = () => {
     dispatch(
       deleteMenuCategory({
         id: menuCategoryId,
-        onSuccess: () => router.push("/backoffice/menu-categories"),
+        onSuccess: onSuccessDelete,
+        onError: () => {
+          dispatch(
+            setOpenSnackbar({
+              message: "Error occurred when Deleting MenuCategory.",
+              autoHideDuration: 2000,
+              severity: "error",
+            })
+          );
+        },
       })
     );
   };

@@ -1,5 +1,6 @@
 import { useAppDispatch, useAppSelector } from "@/store/hooks";
 import { createNewLocation } from "@/store/slices/locationSlice";
+import { setOpenSnackbar } from "@/store/slices/snackbarSlice";
 import {
   Box,
   Button,
@@ -95,7 +96,26 @@ const NewLocation = ({ open, setOpen }: Props) => {
                   createNewLocation({
                     ...newLocation,
                     companyId,
-                    onSuccess: () => setOpen(false),
+                    onSuccess: () => {
+                      setOpen(false),
+                        dispatch(
+                          setOpenSnackbar({
+                            message: "You have created a new Location.",
+                            autoHideDuration: 2000,
+                            severity: "success",
+                          })
+                        );
+                    },
+                    onError: () => {
+                      dispatch(
+                        setOpenSnackbar({
+                          message:
+                            "Error occurred when creating a new Location.",
+                          autoHideDuration: 2000,
+                          severity: "error",
+                        })
+                      );
+                    },
                   })
                 );
               }}

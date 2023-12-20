@@ -1,5 +1,6 @@
 import { useAppDispatch } from "@/store/hooks";
 import { createMenuCategory } from "@/store/slices/menuCategorySlice";
+import { setOpenSnackbar } from "@/store/slices/snackbarSlice";
 import {
   Box,
   Button,
@@ -22,6 +23,13 @@ const NewMenuCategory = ({ open, setOpen }: Props) => {
 
   const onSuccess = () => {
     setOpen(false);
+    dispatch(
+      setOpenSnackbar({
+        message: "You Have Created a New Menu Category....",
+        autoHideDuration: 3000,
+        severity: "success",
+      })
+    );
   };
 
   const handleCreateMenuCategory = () => {
@@ -31,6 +39,15 @@ const NewMenuCategory = ({ open, setOpen }: Props) => {
         name,
         locationId: Number(selectedLocationId),
         onSuccess,
+        onError: () => {
+          dispatch(
+            setOpenSnackbar({
+              message: "Error occurred when creating Menu Category.",
+              autoHideDuration: 2000,
+              severity: "error",
+            })
+          );
+        },
       })
     );
   };

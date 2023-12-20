@@ -1,5 +1,6 @@
 import { useAppDispatch, useAppSelector } from "@/store/hooks";
 import { createAddon } from "@/store/slices/addonSlice";
+import { setOpenSnackbar } from "@/store/slices/snackbarSlice";
 import { CreateAddonOptions } from "@/types/addon";
 import {
   Box,
@@ -40,7 +41,30 @@ const NewAddon = ({ open, setOpen }: Props) => {
   };
 
   const handleCreateAddon = () => {
-    dispatch(createAddon({ ...newAddon, onSuccess: () => setOpen(false) }));
+    dispatch(
+      createAddon({
+        ...newAddon,
+        onSuccess: () => {
+          setOpen(false),
+            dispatch(
+              setOpenSnackbar({
+                message: "You have created an Addon.",
+                autoHideDuration: 2000,
+                severity: "success",
+              })
+            );
+        },
+        onError: () => {
+          dispatch(
+            setOpenSnackbar({
+              message: "Error occurred when updating Menu.",
+              autoHideDuration: 2000,
+              severity: "error",
+            })
+          );
+        },
+      })
+    );
   };
 
   return (

@@ -62,7 +62,18 @@ const NewAddonCategory = ({ open, setOpen }: Props) => {
           setOpen(false);
           dispatch(
             setOpenSnackbar({
-              message: "New addon category created succcessfully.",
+              message: "You have created a new Addon Category.",
+              autoHideDuration: 2000,
+              severity: "success",
+            })
+          );
+        },
+        onError: () => {
+          dispatch(
+            setOpenSnackbar({
+              message: "Error occurred when creating new Addon Category.",
+              autoHideDuration: 2000,
+              severity: "error",
             })
           );
         },
