@@ -1,9 +1,7 @@
 import { Box, Button, Slide, Typography } from "@mui/material";
 import Link from "next/link";
-import { useRouter } from "next/router";
 
 const Hero = () => {
-  const router = useRouter();
   return (
     <Box
       sx={{
@@ -42,20 +40,6 @@ const Hero = () => {
               position: "relative",
             }}
           >
-            <Link href={`/order?tableId=1`}>
-              <Button
-                variant="contained"
-                sx={{
-                  fontSize: { xs: "16px", md: "20px" },
-                  mr: 2,
-                  width: "fit-content",
-                  backgroundColor: "#4C4C6D",
-                  fontFamily: "poppins",
-                }}
-              >
-                Order App
-              </Button>
-            </Link>
             <Link href={`/backoffice`}>
               <Button
                 variant="contained"
@@ -63,10 +47,11 @@ const Hero = () => {
                   fontSize: { xs: "16px", md: "20px" },
                   width: "fit-content",
                   fontFamily: "poppins",
+                  mr: 2,
                   backgroundColor: "#4C4C6D",
                 }}
               >
-                Backoffice App
+                Backoffice Sign In
               </Button>
             </Link>
           </Box>

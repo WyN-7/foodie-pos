@@ -1,7 +1,6 @@
 import OrderCard from "@/components/OrderCard";
 import { useAppDispatch, useAppSelector } from "@/store/hooks";
 import { updateOrder } from "@/store/slices/orderSlice";
-import { setOpenSnackbar } from "@/store/slices/snackbarSlice";
 import { OrderItem } from "@/types/order";
 import { formatOrders } from "@/utils/generals";
 import HourglassEmptyIcon from "@mui/icons-material/HourglassEmpty";
@@ -47,46 +46,13 @@ const OrdersPage = () => {
           onChange={(evt, value) => setValue(value)}
           sx={{ bgcolor: "primary.main" }}
         >
-          <ToggleButton
-            value={ORDERSTATUS.PENDING}
-            onClick={() => {
-              dispatch(
-                setOpenSnackbar({
-                  message: "Order has moved...",
-                  autoHideDuration: 3000,
-                  severity: "success",
-                })
-              );
-            }}
-          >
+          <ToggleButton value={ORDERSTATUS.PENDING}>
             {ORDERSTATUS.PENDING}
           </ToggleButton>
-          <ToggleButton
-            value={ORDERSTATUS.COOKING}
-            onClick={() => {
-              dispatch(
-                setOpenSnackbar({
-                  message: "Order has moved...",
-                  autoHideDuration: 3000,
-                  severity: "success",
-                })
-              );
-            }}
-          >
+          <ToggleButton value={ORDERSTATUS.COOKING}>
             {ORDERSTATUS.COOKING}
           </ToggleButton>
-          <ToggleButton
-            value={ORDERSTATUS.COMPLETE}
-            onClick={() => {
-              dispatch(
-                setOpenSnackbar({
-                  message: "Order has moved...",
-                  autoHideDuration: 3000,
-                  severity: "success",
-                })
-              );
-            }}
-          >
+          <ToggleButton value={ORDERSTATUS.COMPLETE}>
             {ORDERSTATUS.COMPLETE}
           </ToggleButton>
         </ToggleButtonGroup>

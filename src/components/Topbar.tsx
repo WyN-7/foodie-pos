@@ -1,19 +1,23 @@
 import { useAppSelector } from "@/store/hooks";
+import { Home } from "@mui/icons-material";
 import ExitToAppIcon from "@mui/icons-material/ExitToApp";
 import MenuIcon from "@mui/icons-material/Menu";
-import { Box, Button, Drawer, IconButton, Typography } from "@mui/material";
+import { Box, Drawer, IconButton, Typography } from "@mui/material";
 import { signOut, useSession } from "next-auth/react";
 import Image from "next/image";
+import { useRouter } from "next/router";
 import { useState } from "react";
 import SideBar from "./Sidebar";
 
 const Topbar = () => {
   const { data } = useSession();
+  const router = useRouter();
+
   const { theme } = useAppSelector((state) => state.app);
   const { selectedLocation } = useAppSelector((state) => state.location);
   const [openDrawer, setOpenDrawer] = useState(false);
   const showLocation = data && selectedLocation;
-
+  const IsOk = useAppSelector((state) => state.app.init === true);
   return (
     <Box
       sx={{
@@ -24,8 +28,8 @@ const Topbar = () => {
         px: 2,
       }}
     >
-      <Box sx={{ height: 70 }}>
-        <Image src={"/Logo.png"} alt="logo" width={75} height={75} />
+      <Box sx={{ height: 70, display: { xs: "none", sm: "block" } }}>
+        {IsOk && <Image src={"/Logo.png"} alt="logo" width={75} height={75} />}
       </Box>
       <Box
         sx={{ display: "flex", alignItems: "center", flexDirection: "column" }}
@@ -33,14 +37,14 @@ const Topbar = () => {
         <Typography
           variant="h5"
           color={"secondary"}
-          sx={{ fontFamily: "poppins" }}
+          sx={{ fontFamily: "poppins", ml: 5 }}
         >
           Foodie POS
         </Typography>
         {showLocation && (
           <Typography
             color={"secondary"}
-            sx={{ fontSize: 12, fontFamily: "poppins" }}
+            sx={{ fontSize: 12, fontFamily: "poppins", ml: 5 }}
           >
             {`Current Location | ${selectedLocation?.name}`}
           </Typography>
@@ -54,13 +58,72 @@ const Topbar = () => {
           >
             <MenuIcon sx={{ fontSize: "30px", color: "#E8F6EF" }} />
           </IconButton>
-          <Button
-            sx={{ display: { xs: "none", sm: "block" } }}
-            variant="contained"
-            onClick={() => signOut({ callbackUrl: "/backoffice" })}
-          >
-            Sign out
-          </Button>
+          <Box sx={{ display: "flex", flexDirection: "row", gap: 2.5 }}>
+            <Typography
+              sx={{
+                display: { xs: "none", sm: "block" },
+                fontSize: { xs: "12px", md: "16px" },
+                color: "#fff",
+                cursor: "pointer",
+                borderRadius: 2,
+                bgcolor: theme === "dark" ? "primary.light" : "success.light",
+                p: 1,
+                fontFamily: "poppins",
+              }}
+              onClick={() => router.push("/")}
+            >
+              Home
+            </Typography>
+            <Typography
+              sx={{
+                fontSize: { xs: "12px", md: "16px" },
+                color: "#fff",
+                bgcolor: theme === "dark" ? "primary.light" : "success.light",
+                p: 1,
+                fontFamily: "poppins",
+                borderRadius: 2,
+                display: { xs: "none", sm: "block" },
+              }}
+              onClick={() => {
+                router.push(`/order?tableId=1`);
+              }}
+            >
+              Order App
+            </Typography>
+
+            <Typography
+              sx={{
+                display: { xs: "none", sm: "block" },
+                fontSize: { xs: "12px", md: "16px" },
+                color: "#fff",
+                bgcolor: theme === "dark" ? "primary.light" : "success.light",
+                p: 1,
+                borderRadius: 2,
+                justifyContent: "center",
+                cursor: "pointer",
+                fontFamily: "poppins",
+              }}
+              onClick={() => signOut({ callbackUrl: "/backoffice" })}
+            >
+              Sign out
+            </Typography>
+          </Box>
+          <Home
+            sx={{
+              cursor: "pointer",
+              color: "#fff",
+              display: {
+                xs: "block",
+                sm: "none",
+                position: "absolute",
+                top: 8,
+                fontSize: "2rem",
+                alignItems: "center",
+                right: 105,
+              },
+            }}
+            onClick={() => router.push("/")}
+          ></Home>
           <ExitToAppIcon
             sx={{
               cursor: "pointer",
@@ -69,10 +132,10 @@ const Topbar = () => {
                 xs: "block",
                 sm: "none",
                 position: "absolute",
-                top: 18,
+                top: 8,
                 fontSize: "2rem",
                 alignItems: "center",
-                right: 60,
+                right: 65,
               },
             }}
             onClick={() => signOut({ callbackUrl: "/backoffice" })}
