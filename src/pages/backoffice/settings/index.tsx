@@ -76,6 +76,7 @@ const SettingsPage = () => {
       </Box>
       <TextField
         defaultValue={data.name}
+        label="Company's Name"
         sx={{ mb: 2, bgcolor: "ghostwhite" }}
         onChange={(evt) =>
           setData({ ...data, id: company.id, name: evt.target.value })
@@ -84,6 +85,7 @@ const SettingsPage = () => {
       <TextField
         defaultValue={data.street}
         sx={{ mb: 2, bgcolor: "ghostwhite" }}
+        label="Company's Street"
         onChange={(evt) =>
           setData({ ...data, id: company.id, street: evt.target.value })
         }
@@ -91,6 +93,7 @@ const SettingsPage = () => {
       <TextField
         defaultValue={data.township}
         sx={{ mb: 2, bgcolor: "ghostwhite" }}
+        label="Company's Township"
         onChange={(evt) =>
           setData({ ...data, id: company.id, township: evt.target.value })
         }
@@ -98,6 +101,7 @@ const SettingsPage = () => {
       <TextField
         defaultValue={data.city}
         sx={{ mb: 2, bgcolor: "ghostwhite" }}
+        label="Company's City"
         onChange={(evt) =>
           setData({ ...data, id: company.id, city: evt.target.value })
         }

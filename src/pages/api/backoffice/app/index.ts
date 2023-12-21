@@ -19,10 +19,10 @@ export default async function handler(
     const dbUser = await prisma.user.findFirst({ where: { email } });
     if (!dbUser) {
       // 1. create new company for user and assign user to it.
-      const newCompanyName = "Ah Wa Sarr";
-      const newCompanyStreet = "Hintada Street 21";
-      const newCompanyTownship = "Sanchaung";
-      const newCompanyCity = "Yangon";
+      const newCompanyName = "Default CompanyName";
+      const newCompanyStreet = "Default Street";
+      const newCompanyTownship = "Default Township";
+      const newCompanyCity = "Default City";
       const company = await prisma.company.create({
         data: {
           name: newCompanyName,
@@ -71,10 +71,10 @@ export default async function handler(
         newAddonsData.map((addon) => prisma.addon.create({ data: addon }))
       );
       // 9. create new location
-      const newLocationName = "Sanchaung";
-      const newLocationStreet = "Sanchaung";
-      const newLocationTownship = "Sanchaung";
-      const newLocationCity = "Sanchaung";
+      const newLocationName = "Default Location";
+      const newLocationStreet = "Default Street";
+      const newLocationTownship = "Default Township";
+      const newLocationCity = "Default City";
       const location = await prisma.location.create({
         data: {
           name: newLocationName,
