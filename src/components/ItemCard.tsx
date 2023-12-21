@@ -40,6 +40,7 @@ const ItemCard = ({
             justifyContent: "center",
             alignItems: "center",
             m: 2,
+            textOverflow: "ellipsis",
             opacity: isAvailable === false ? 0.4 : 1,
             backgroundColor: theme === "dark" ? "info.main" : "info.main",
           }}

@@ -1,10 +1,10 @@
 import { useAppSelector } from "@/store/hooks";
 import { Home } from "@mui/icons-material";
 import ExitToAppIcon from "@mui/icons-material/ExitToApp";
+import FastfoodIcon from "@mui/icons-material/Fastfood";
 import MenuIcon from "@mui/icons-material/Menu";
 import { Box, Drawer, IconButton, Typography } from "@mui/material";
 import { signOut, useSession } from "next-auth/react";
-import Image from "next/image";
 import { useRouter } from "next/router";
 import { useState } from "react";
 import SideBar from "./Sidebar";
@@ -29,7 +29,9 @@ const Topbar = () => {
       }}
     >
       <Box sx={{ height: 70, display: { xs: "none", sm: "block" } }}>
-        {IsOk && <Image src={"/Logo.png"} alt="logo" width={75} height={75} />}
+        {IsOk && (
+          <FastfoodIcon sx={{ fontSize: 60, color: "secondary.main", ml: 2 }} />
+        )}
       </Box>
       <Box
         sx={{ display: "flex", alignItems: "center", flexDirection: "column" }}
