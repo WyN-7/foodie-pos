@@ -1,12 +1,11 @@
-import { config } from "@/utils/config";
 import NextAuth, { NextAuthOptions } from "next-auth";
-import GoogleProvider from "next-auth/providers/google";
+import GithubProvider from "next-auth/providers/github";
 
-export const authOptions: NextAuthOptions = {
+const authOptions: NextAuthOptions = {
   providers: [
-    GoogleProvider({
-      clientId: config.googleClientId,
-      clientSecret: config.googleClientSecret,
+    GithubProvider({
+      clientId: process.env.GITHUB_ID!,
+      clientSecret: process.env.GITHUB_SECRET!,
     }),
   ],
 };
