@@ -1,5 +1,5 @@
 import { Box, Button } from "@mui/material";
-import { useSession } from "next-auth/react";
+import { signIn, useSession } from "next-auth/react";
 import { useRouter } from "next/router";
 
 export default function Home() {
@@ -17,11 +17,7 @@ export default function Home() {
       >
         <Button
           variant="contained"
-          onClick={() =>
-            router.push(
-              "https://foodie-pos-six.vercel.app//api/auth/signin/github"
-            )
-          }
+          onClick={() => signIn("github", { callbackUrl: "/backoffice" })}
         >
           Sign in
         </Button>

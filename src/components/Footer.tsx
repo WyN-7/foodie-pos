@@ -102,9 +102,7 @@ const Footer = () => {
           ml: "50px",
         }}
       >
-        <Box sx={{ display: { xs: "none", sm: "block" } }}>
-          <Image src={"/logo.png"} alt="logo" width={130} height={130} />
-        </Box>
+        <Box sx={{ display: { xs: "none", sm: "block" } }}></Box>
       </Box>
     </Box>
   );

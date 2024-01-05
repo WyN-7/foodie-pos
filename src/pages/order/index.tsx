@@ -52,27 +52,27 @@ const OrderApp = () => {
           }}
           value={value}
           onChange={(evt, value) => setValue(value)}
+          scrollButtons={false}
           variant="scrollable"
           sx={{
+            pb: 1,
+            position: "sticky", // Fixed position for the tabs
+            width: "100%", // Take up the full width
+            zIndex: 0, // Adjust the zIndex to be above other elements
             ".Mui-selected": {
-              color: "#8a2be2",
+              color: "#1B9C85",
               fontWeight: "bold",
-              bgcolor: "transparent",
-              fontSize: "15px",
-              fontFamily: "poppins",
             },
           }}
         >
-          {menuCategories.map((item) => {
-            return (
-              <Tab
-                key={item.id}
-                label={item.name}
-                sx={{ color: "#4C4C6D" }}
-                onClick={() => setSelectedMenuCategory(item)}
-              />
-            );
-          })}
+          {menuCategories.map((item) => (
+            <Tab
+              key={item.id}
+              label={item.name}
+              sx={{ color: "#4C4C6D" }}
+              onClick={() => setSelectedMenuCategory(item)}
+            />
+          ))}
         </Tabs>
       </Box>
       <Box
@@ -80,7 +80,8 @@ const OrderApp = () => {
           pt: 2,
           display: "flex",
           flexWrap: "wrap",
-          justifyContent: { xs: "center", sm: "flex-start" },
+          maxHeight: "300px", // Set the maximum height for the scroll bar to appear
+          overflowY: "auto", // Enable vertical
         }}
       >
         {renderMenus()}
@@ -88,5 +89,4 @@ const OrderApp = () => {
     </Box>
   );
 };
-
 export default OrderApp;
