@@ -6,3 +6,18 @@ body {
   background-color: #fffacd;
   box-sizing: border-box;
 }
+
+@keyframes dot {
+  0%,
+  20% {
+    opacity: 0.2;
+  }
+  40% {
+    opacity: 1;
+  }
+  60%,
+  80%,
+  100% {
+    opacity: 0.2;
+  }
+}

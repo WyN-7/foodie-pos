@@ -3,6 +3,7 @@ import { setOpenSnackbar } from "@/store/slices/snackbarSlice";
 import { OrderItem } from "@/types/order";
 import { Box, Card, MenuItem, Select, Typography } from "@mui/material";
 import { AddonCategory, ORDERSTATUS } from "@prisma/client";
+import Image from "next/image";
 
 interface Props {
   orderItem: OrderItem;
@@ -103,6 +104,13 @@ const OrderCard = ({ orderItem, isAdmin, handleOrderStatuUpdate }: Props) => {
           }}
         >
           <Typography sx={{ fontWeight: "bold" }}>Status: </Typography>
+          <Image
+            src={"/load.gif"}
+            alt="cooking"
+            width={30}
+            height={30}
+            style={{ marginLeft: 10, opacity: "50%" }}
+          />
           {isAdmin ? (
             <Box
               sx={{

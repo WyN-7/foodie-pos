@@ -101,28 +101,29 @@ const OrderAppHeader = ({ cartItemCount }: Props) => {
           }}
         >
           {isCartOrActiveOrderPage ? (
-            <Home
+            <Image
+              src={"/home.gif"}
+              alt="home"
+              width={70}
+              height={70}
+              style={{ cursor: "pointer" }}
               onClick={() =>
                 router.push({
                   pathname: "/order",
                   query: { tableId: router.query.tableId },
                 })
               }
-              sx={{
-                fontSize: "40px",
-                color: "#FFE194",
-              }}
             />
           ) : (
             <>
-              <ShoppingCartCheckoutIcon
+              <Image
+                src={"/cart.gif"}
+                alt="cart"
+                width={60}
+                height={60}
                 onClick={() =>
                   router.push({ pathname: "/order/cart", query: router.query })
                 }
-                sx={{
-                  fontSize: "40px",
-                  color: "#FFE194",
-                }}
               />
               {cartItemCount > 0 && (
                 <Typography
@@ -131,10 +132,10 @@ const OrderAppHeader = ({ cartItemCount }: Props) => {
                     textAlign: "right",
                     color: "#E8F6EF",
                     position: "absolute",
-                    top: -5,
-                    right: -15,
+                    top: 0,
+                    right: -10,
                     px: 1.2,
-                    fontFamily: "poppins",
+                    fontFamily: "Arial",
                     bgcolor: "#cb2027",
                     borderRadius: "50px",
                   }}
@@ -166,7 +167,7 @@ const OrderAppHeader = ({ cartItemCount }: Props) => {
                   fontFamily: "merriweather",
                 }}
               >
-                {company?.name}
+                Company Name | {company?.name}
               </Typography>
               <Typography
                 variant="body1"
@@ -176,8 +177,8 @@ const OrderAppHeader = ({ cartItemCount }: Props) => {
                   fontFamily: "merriweather",
                 }}
               >
-                {company?.street}
-                <br /> {company?.township}, {company?.city}
+                Street | {company?.street}
+                <br /> Township | {company?.township}, {company?.city}
               </Typography>
             </Box>
           </Box>

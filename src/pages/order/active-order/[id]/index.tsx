@@ -40,21 +40,33 @@ const ActiveOrder = () => {
         sx={{
           display: "flex",
           justifyContent: "center",
-          p: 3,
+          p: 2.5,
           bgcolor: "teal",
           borderRadius: 2,
-          mx: 30,
+          mx: { lg: 30, xs: "auto" },
+          width: { lg: 600, xs: 300 },
+          height: 125,
           flexDirection: "column",
           alignItems: "center",
+          boxShadow: " 0 0 5px 5px rgba(0,0,0,0.2)",
         }}
       >
         <Typography
-          sx={{ fontFamily: "poppins", fontWeight: "light", color: "#fff" }}
+          sx={{
+            fontFamily: "poppins",
+            fontWeight: "light",
+            color: "#fff",
+            padding: 5,
+          }}
         >
-          OrderSeq | {orderSeq}{" "}
+          OrderSeq | {orderSeq}
         </Typography>
         <Typography
-          sx={{ fontFamily: "poppins", fontWeight: "light", color: "#fff" }}
+          sx={{
+            fontFamily: "poppins",
+            fontWeight: "light",
+            color: "#fff",
+          }}
         >
           Total price | {orders[0].totalPrice}
         </Typography>

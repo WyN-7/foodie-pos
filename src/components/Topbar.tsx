@@ -1,10 +1,10 @@
 import { useAppSelector } from "@/store/hooks";
 import { Home } from "@mui/icons-material";
 import ExitToAppIcon from "@mui/icons-material/ExitToApp";
-import FastfoodIcon from "@mui/icons-material/Fastfood";
 import MenuIcon from "@mui/icons-material/Menu";
-import { Box, Drawer, IconButton, Typography } from "@mui/material";
+import { Box, Button, Drawer, IconButton, Typography } from "@mui/material";
 import { signOut, useSession } from "next-auth/react";
+import Image from "next/image";
 import { useRouter } from "next/router";
 import { useState } from "react";
 import SideBar from "./Sidebar";
@@ -30,7 +30,14 @@ const Topbar = () => {
     >
       <Box sx={{ height: 70, display: { xs: "none", sm: "block" } }}>
         {IsOk && (
-          <FastfoodIcon sx={{ fontSize: 60, color: "secondary.main", ml: 2 }} />
+          <Image
+            src={"/home.gif"}
+            alt="home"
+            width={70}
+            height={70}
+            style={{ cursor: "pointer", marginLeft: 30 }}
+            onClick={() => router.push("/")}
+          />
         )}
       </Box>
       <Box
@@ -61,54 +68,70 @@ const Topbar = () => {
             <MenuIcon sx={{ fontSize: "30px", color: "#E8F6EF" }} />
           </IconButton>
           <Box sx={{ display: "flex", flexDirection: "row", gap: 2.5 }}>
-            <Typography
+            {/*  <Button
               sx={{
                 display: { xs: "none", sm: "block" },
                 fontSize: { xs: "12px", md: "16px" },
                 color: "#fff",
                 cursor: "pointer",
                 borderRadius: 2,
-                bgcolor: theme === "dark" ? "primary.light" : "success.light",
-                p: 1,
+                bgcolor: theme === "dark" ? "info.dark" : "info.dark",
+                px: 1,
+                transition: "transform 0.3s ease-in-out",
+                "&:hover": {
+                  bgcolor: theme === "dark" ? "secondary.main" : "error.light",
+                  transform: "scale(1.1)",
+                },
                 fontFamily: "poppins",
               }}
               onClick={() => router.push("/")}
             >
               Home
-            </Typography>
-            <Typography
+            </Button> */}
+            <Button
               sx={{
                 fontSize: { xs: "12px", md: "16px" },
                 color: "#fff",
-                bgcolor: theme === "dark" ? "primary.light" : "success.light",
+                bgcolor: theme === "dark" ? "info.dark" : "info.dark",
                 p: 1,
+                cursor: "pointer",
                 fontFamily: "poppins",
                 borderRadius: 2,
                 display: { xs: "none", sm: "block" },
+                transition: "transform 0.3s ease-in-out",
+                "&:hover": {
+                  bgcolor: theme === "dark" ? "secondary.main" : "error.light",
+                  transform: "scale(1.1)",
+                },
               }}
               onClick={() => {
                 router.push(`/order?tableId=1`);
               }}
             >
               Order App
-            </Typography>
+            </Button>
 
-            <Typography
+            <Button
               sx={{
                 display: { xs: "none", sm: "block" },
                 fontSize: { xs: "12px", md: "16px" },
                 color: "#fff",
-                bgcolor: theme === "dark" ? "primary.light" : "success.light",
+                bgcolor: theme === "dark" ? "info.dark" : "info.dark",
                 p: 1,
                 borderRadius: 2,
                 justifyContent: "center",
                 cursor: "pointer",
                 fontFamily: "poppins",
+                transition: "transform 0.3s ease-in-out",
+                "&:hover": {
+                  bgcolor: theme === "dark" ? "secondary.main" : "error.light",
+                  transform: "scale(1.1)",
+                },
               }}
               onClick={() => signOut({ callbackUrl: "/backoffice" })}
             >
               Sign out
-            </Typography>
+            </Button>
           </Box>
           <Home
             sx={{

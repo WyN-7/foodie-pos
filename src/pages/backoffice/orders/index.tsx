@@ -3,7 +3,6 @@ import { useAppDispatch, useAppSelector } from "@/store/hooks";
 import { updateOrder } from "@/store/slices/orderSlice";
 import { OrderItem } from "@/types/order";
 import { formatOrders } from "@/utils/generals";
-import HourglassEmptyIcon from "@mui/icons-material/HourglassEmpty";
 import {
   Box,
   ToggleButton,
@@ -11,6 +10,7 @@ import {
   Typography,
 } from "@mui/material";
 import { ORDERSTATUS } from "@prisma/client";
+import Image from "next/image";
 import { useEffect, useState } from "react";
 
 const OrdersPage = () => {
@@ -87,7 +87,13 @@ const OrdersPage = () => {
             gap: 2,
           }}
         >
-          <HourglassEmptyIcon sx={{ fontSize: 90, color: "ActiveCaption" }} />
+          <Image
+            src={"/load.gif"}
+            alt="loading"
+            width={100}
+            height={100}
+            style={{ marginLeft: 10, opacity: "50%" }}
+          />
           <Typography variant="h4" fontFamily="poppins">
             No Pending Orders.
           </Typography>

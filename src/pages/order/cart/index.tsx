@@ -69,6 +69,7 @@ const Cart = () => {
         bgcolor: "#E8F6EF",
         borderRadius: 8,
         mx: 3,
+        boxShadow: " 0 0 5px 5px rgba(0,0,0,0.1)",
         width: "500px",
         m: "0 auto",
         position: "relative",
@@ -78,7 +79,7 @@ const Cart = () => {
     >
       {!cartItems.length ? (
         <Typography sx={{ fontFamily: "merriweather" }}>
-          Your cart is empty.
+          Your cart is currently empty.
         </Typography>
       ) : (
         <Box
