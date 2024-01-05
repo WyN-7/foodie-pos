@@ -21,7 +21,9 @@ export default function Home() {
               onClick={() => signIn("google", { callbackUrl: "/backoffice" })}
  */
           onClick={() =>
-            router.push("http://localhost:3000/api/auth/signin/google")
+            router.push(
+              "https://foodie-pos-six.vercel.app/api/auth/signin/github"
+            )
           }
         >
           Sign in
