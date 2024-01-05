@@ -1,5 +1,5 @@
 import { Box, Button } from "@mui/material";
-import { signIn, useSession } from "next-auth/react";
+import { useSession } from "next-auth/react";
 import { useRouter } from "next/router";
 
 export default function Home() {
@@ -17,7 +17,12 @@ export default function Home() {
       >
         <Button
           variant="contained"
-          onClick={() => signIn("google", { callbackUrl: "/backoffice" })}
+          /*       
+              onClick={() => signIn("google", { callbackUrl: "/backoffice" })}
+ */
+          onClick={() =>
+            router.push("http://localhost:3000/api/auth/signin/google")
+          }
         >
           Sign in
         </Button>
