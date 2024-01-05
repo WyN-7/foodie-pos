@@ -17,8 +17,10 @@ import {
   ListItemText,
 } from "@mui/material";
 import Link from "next/link";
+import { useRouter } from "next/router";
 
 const SideBar = () => {
+  const router = useRouter();
   const { theme } = useAppSelector((state) => state.app);
   return (
     <Box
@@ -33,19 +35,31 @@ const SideBar = () => {
           <Link
             key={item.id}
             href={item.route}
-            style={{ textDecoration: "none", color: "#313131" }}
+            style={{
+              textDecoration: "none",
+              color: "red",
+            }}
           >
-            <ListItem
-              disablePadding
-              sx={{ "&.hover": { backgroundColor: "blue" } }}
-            >
+            <ListItem disablePadding>
               <ListItemButton>
-                <ListItemIcon sx={{ color: "info.main" }}>
+                <ListItemIcon
+                  sx={{
+                    color:
+                      router.pathname === item.route
+                        ? "error.light"
+                        : "info.main",
+                  }}
+                >
                   {item.icon}
                 </ListItemIcon>
                 <ListItemText
                   primary={item.label}
-                  sx={{ color: "info.main" }}
+                  sx={{
+                    color:
+                      router.pathname === item.route
+                        ? "error.light"
+                        : "info.main",
+                  }}
                 />
               </ListItemButton>
             </ListItem>
@@ -65,12 +79,24 @@ const SideBar = () => {
           >
             <ListItem disablePadding>
               <ListItemButton>
-                <ListItemIcon sx={{ color: "info.main" }}>
+                <ListItemIcon
+                  sx={{
+                    color:
+                      router.pathname === item.route
+                        ? "error.light"
+                        : "info.main",
+                  }}
+                >
                   {item.icon}
                 </ListItemIcon>
                 <ListItemText
                   primary={item.label}
-                  sx={{ color: "info.main" }}
+                  sx={{
+                    color:
+                      router.pathname === item.route
+                        ? "error.light"
+                        : "info.main",
+                  }}
                 />
               </ListItemButton>
             </ListItem>

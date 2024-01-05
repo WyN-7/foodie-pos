@@ -17,12 +17,9 @@ export default function Home() {
       >
         <Button
           variant="contained"
-          /*       
-              onClick={() => signIn("google", { callbackUrl: "/backoffice" })}
- */
           onClick={() =>
             router.push(
-              "https://foodie-pos-six.vercel.app/api/auth/signin/github"
+              "https://foodie-pos-six.vercel.app//api/auth/signin/github"
             )
           }
         >
