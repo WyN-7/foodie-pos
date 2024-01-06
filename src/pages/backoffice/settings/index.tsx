@@ -10,6 +10,7 @@ import {
   FormControlLabel,
   Switch,
   TextField,
+  Typography,
 } from "@mui/material";
 import { useEffect, useState } from "react";
 
@@ -74,34 +75,78 @@ const SettingsPage = () => {
           }}
         />
       </Box>
+      <Typography
+        sx={{
+          bgcolor: "brown",
+          color: "#fff",
+          width: 135,
+          textAlign: "center",
+          borderRadius: 1,
+        }}
+      >
+        Name
+      </Typography>
       <TextField
         defaultValue={data.name}
-        label="Company's Name"
+        placeholder="Company's Name"
         sx={{ mb: 2, bgcolor: "ghostwhite" }}
         onChange={(evt) =>
           setData({ ...data, id: company.id, name: evt.target.value })
         }
       />
+      <Typography
+        sx={{
+          bgcolor: "brown",
+          color: "#fff",
+          width: 135,
+          borderRadius: 1,
+          textAlign: "center",
+        }}
+      >
+        Street
+      </Typography>
       <TextField
         defaultValue={data.street}
         sx={{ mb: 2, bgcolor: "ghostwhite" }}
-        label="Company's Street"
+        placeholder="Company's Street"
         onChange={(evt) =>
           setData({ ...data, id: company.id, street: evt.target.value })
         }
       />
+      <Typography
+        sx={{
+          bgcolor: "brown",
+          color: "#fff",
+          width: 135,
+          borderRadius: 1,
+          textAlign: "center",
+        }}
+      >
+        Township
+      </Typography>
       <TextField
         defaultValue={data.township}
         sx={{ mb: 2, bgcolor: "ghostwhite" }}
-        label="Company's Township"
+        placeholder="Company's Township"
         onChange={(evt) =>
           setData({ ...data, id: company.id, township: evt.target.value })
         }
       />
+      <Typography
+        sx={{
+          bgcolor: "brown",
+          color: "#fff",
+          width: 135,
+          borderRadius: 1,
+          textAlign: "center",
+        }}
+      >
+        City
+      </Typography>
       <TextField
         defaultValue={data.city}
         sx={{ mb: 2, bgcolor: "ghostwhite" }}
-        label="Company's City"
+        placeholder="Company's City"
         onChange={(evt) =>
           setData({ ...data, id: company.id, city: evt.target.value })
         }
