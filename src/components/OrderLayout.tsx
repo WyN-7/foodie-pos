@@ -1,8 +1,7 @@
 import { useAppDispatch, useAppSelector } from "@/store/hooks";
 import { fetchAppData } from "@/store/slices/appSlice";
-import { Box, Typography } from "@mui/material";
+import { Box } from "@mui/material";
 import { ORDERSTATUS } from "@prisma/client";
-import Image from "next/image";
 import { useRouter } from "next/router";
 import { useEffect } from "react";
 import OrderAppHeader from "./OrderAppHeader";
@@ -58,13 +57,18 @@ const OrderLayout = (props: Props) => {
         <Box
           sx={{
             height: 50,
-            width: "100vw",
+            width: "500px",
+            borderRadius: "10px 0 0 10px",
             bgcolor: "primary.main",
             position: "fixed",
             bottom: 0,
+            right: 0,
+            color: "secondary.main",
+            userSelect: "none",
             justifyContent: "center",
             alignItems: "center",
             display: "flex",
+            fontFamily: "poppins",
             cursor: "pointer",
             zIndex: 5,
           }}
@@ -75,22 +79,7 @@ const OrderLayout = (props: Props) => {
             })
           }
         >
-          <Typography
-            sx={{
-              color: "secondary.main",
-              userSelect: "none",
-            }}
-          >
-            You have an active order{" "}
-            <Image
-              src={"/glass.gif"}
-              alt="find"
-              width={30}
-              height={30}
-              style={{ position: "absolute", bottom: 9 }}
-            />
-            {"    "}
-          </Typography>
+          You have an active order click to view
         </Box>
       )}
     </Box>

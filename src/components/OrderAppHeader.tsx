@@ -24,6 +24,7 @@ const OrderAppHeader = ({ cartItemCount }: Props) => {
         sx={{
           bgcolor: "#1B9C85",
           height: 60,
+          width: "120vw",
           px: 2,
           display: { xs: "flex", sm: "none" },
           justifyContent: "space-between",
