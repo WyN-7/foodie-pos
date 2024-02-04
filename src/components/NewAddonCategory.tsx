@@ -88,9 +88,10 @@ const NewAddonCategory = ({ open, setOpen }: Props) => {
         setNewAddonCategory(defaultNewAddonCategory);
         setOpen(false);
       }}
+      sx={{ width: "100vw" }}
     >
       <DialogTitle>Create new addon category</DialogTitle>
-      <DialogContent sx={{ width: 300 }}>
+      <DialogContent sx={{ width: "fit-content" }}>
         <TextField
           onChange={(evt) =>
             setNewAddonCategory({ ...newAddonCategory, name: evt.target.value })

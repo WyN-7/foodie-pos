@@ -46,7 +46,7 @@ const NewTable = ({ open, setOpen }: Props) => {
     >
       <DialogTitle>Create new table</DialogTitle>
       <DialogContent
-        sx={{ display: "flex", flexDirection: "column", width: 400 }}
+        sx={{ display: "flex", flexDirection: "column", width: "fit-content" }}
       >
         <TextField
           placeholder="Name"

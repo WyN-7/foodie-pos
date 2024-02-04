@@ -100,10 +100,15 @@ const NewMenu = ({ open, setOpen }: Props) => {
         setNewMenu(defaultNewMenu);
         setOpen(false);
       }}
+      sx={{ width: "100vw" }}
     >
-      <DialogTitle>Create new menu</DialogTitle>
+      <DialogTitle
+        sx={{ display: "flex", justifyContent: "center", alignItems: "center" }}
+      >
+        Create new menu
+      </DialogTitle>
       <DialogContent
-        sx={{ display: "flex", flexDirection: "column", width: 400 }}
+        sx={{ display: "flex", flexDirection: "column", width: "fit-content" }}
       >
         <TextField
           placeholder="Name"

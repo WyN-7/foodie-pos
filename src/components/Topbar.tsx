@@ -1,5 +1,4 @@
 import { useAppSelector } from "@/store/hooks";
-import { Home } from "@mui/icons-material";
 import ExitToAppIcon from "@mui/icons-material/ExitToApp";
 import MenuIcon from "@mui/icons-material/Menu";
 import { Box, Button, Drawer, IconButton, Typography } from "@mui/material";
@@ -88,7 +87,7 @@ const Topbar = () => {
             >
               Home
             </Button> */}
-            <Button
+            {/*  <Button
               sx={{
                 fontSize: { xs: "10px", md: "15px" },
                 color: "#fff",
@@ -109,8 +108,7 @@ const Topbar = () => {
               }}
             >
               Order App
-            </Button>
-
+            </Button> */}
             <Button
               sx={{
                 display: { xs: "none", sm: "block" },
@@ -133,22 +131,7 @@ const Topbar = () => {
               Sign out
             </Button>
           </Box>
-          <Home
-            sx={{
-              cursor: "pointer",
-              color: "#fff",
-              display: {
-                xs: "block",
-                sm: "none",
-                position: "absolute",
-                top: 8,
-                fontSize: "2rem",
-                alignItems: "center",
-                right: 105,
-              },
-            }}
-            onClick={() => router.push("/")}
-          ></Home>
+
           <ExitToAppIcon
             sx={{
               cursor: "pointer",

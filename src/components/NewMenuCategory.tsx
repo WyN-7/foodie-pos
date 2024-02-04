@@ -53,7 +53,7 @@ const NewMenuCategory = ({ open, setOpen }: Props) => {
   };
 
   return (
-    <Dialog open={open} onClose={() => setOpen(false)}>
+    <Dialog open={open} onClose={() => setOpen(false)} sx={{ width: "100vw" }}>
       <DialogTitle>Create new menu category</DialogTitle>
       <DialogContent>
         <Box sx={{ mt: 1 }}>

@@ -74,11 +74,16 @@ const NewAddon = ({ open, setOpen }: Props) => {
         setOpen(false);
         setNewAddon(defaultNewAddon);
       }}
+      sx={{ width: "100vw" }}
     >
       <DialogTitle>Create new addon</DialogTitle>
       <DialogContent>
         <DialogContent
-          sx={{ display: "flex", flexDirection: "column", width: 400 }}
+          sx={{
+            display: "flex",
+            flexDirection: "column",
+            width: "fit-content",
+          }}
         >
           <TextField
             placeholder="Name"

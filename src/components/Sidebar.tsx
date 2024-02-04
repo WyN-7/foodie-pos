@@ -1,4 +1,5 @@
 import { useAppSelector } from "@/store/hooks";
+import { Home, ReceiptLong } from "@mui/icons-material";
 import CategoryIcon from "@mui/icons-material/Category";
 import ClassIcon from "@mui/icons-material/Class";
 import EggIcon from "@mui/icons-material/Egg";
@@ -31,7 +32,7 @@ const SideBar = () => {
       }}
     >
       <List sx={{ p: 0 }}>
-        {sidebarMenuItems.slice(0, 7).map((item) => (
+        {sidebarMenuItems.slice(0, 9).map((item) => (
           <Link
             key={item.id}
             href={item.route}
@@ -154,6 +155,18 @@ export const sidebarMenuItems = [
   },
   {
     id: 8,
+    label: "Home",
+    icon: <Home />,
+    route: "/",
+  },
+  {
+    id: 9,
+    label: "Order App",
+    icon: <ReceiptLong />,
+    route: `/order?tableId=1`,
+  },
+  {
+    id: 10,
     label: "Settings",
     icon: <SettingsIcon />,
     route: "/backoffice/settings",
