@@ -90,7 +90,7 @@ const Topbar = () => {
             </Button> */}
             <Button
               sx={{
-                fontSize: { xs: "12px", md: "16px" },
+                fontSize: { xs: "10px", md: "15px" },
                 color: "#fff",
                 bgcolor: theme === "dark" ? "info.dark" : "info.dark",
                 p: 1,
@@ -114,7 +114,7 @@ const Topbar = () => {
             <Button
               sx={{
                 display: { xs: "none", sm: "block" },
-                fontSize: { xs: "12px", md: "16px" },
+                fontSize: { xs: "10px", md: "15px" },
                 color: "#fff",
                 bgcolor: theme === "dark" ? "info.dark" : "info.dark",
                 p: 1,
