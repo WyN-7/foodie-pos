@@ -39,7 +39,7 @@ const SettingsPage = () => {
   };
 
   return (
-    <Box sx={{ display: "flex", flexDirection: "column" }}>
+    <Box sx={{ display: "flex", flexDirection: "column", gap: 1 }}>
       <Box sx={{ display: "flex", justifyContent: "flex-end", mb: 2 }}>
         <FormControlLabel
           control={
@@ -89,7 +89,7 @@ const SettingsPage = () => {
       <TextField
         defaultValue={data.name}
         placeholder="Company's Name"
-        sx={{ mb: 2, bgcolor: "ghostwhite" }}
+        sx={{ width: 345, bgcolor: "ghostwhite" }}
         onChange={(evt) =>
           setData({ ...data, id: company.id, name: evt.target.value })
         }
@@ -107,7 +107,7 @@ const SettingsPage = () => {
       </Typography>
       <TextField
         defaultValue={data.street}
-        sx={{ mb: 2, bgcolor: "ghostwhite" }}
+        sx={{ width: 345, bgcolor: "ghostwhite" }}
         placeholder="Company's Street"
         onChange={(evt) =>
           setData({ ...data, id: company.id, street: evt.target.value })
@@ -126,7 +126,7 @@ const SettingsPage = () => {
       </Typography>
       <TextField
         defaultValue={data.township}
-        sx={{ mb: 2, bgcolor: "ghostwhite" }}
+        sx={{ width: 345, bgcolor: "ghostwhite" }}
         placeholder="Company's Township"
         onChange={(evt) =>
           setData({ ...data, id: company.id, township: evt.target.value })
@@ -145,7 +145,7 @@ const SettingsPage = () => {
       </Typography>
       <TextField
         defaultValue={data.city}
-        sx={{ mb: 2, bgcolor: "ghostwhite" }}
+        sx={{ bgcolor: "ghostwhite", width: 345 }}
         placeholder="Company's City"
         onChange={(evt) =>
           setData({ ...data, id: company.id, city: evt.target.value })

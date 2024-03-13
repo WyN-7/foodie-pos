@@ -36,6 +36,8 @@ const OrderAppHeader = ({ cartItemCount }: Props) => {
           sx={{
             fontWeight: "bold",
             color: "info.main",
+            fontFamily: "poppins",
+            p: 5,
           }}
         >
           {company?.name}

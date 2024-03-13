@@ -7,7 +7,6 @@ import { UpdateMenuOptions } from "@/types/menu";
 import { config } from "@/utils/config";
 import {
   Box,
-  Button,
   Checkbox,
   Chip,
   Dialog,
@@ -16,7 +15,6 @@ import {
   DialogTitle,
   FormControl,
   FormControlLabel,
-  InputLabel,
   ListItemText,
   MenuItem,
   Select,
@@ -24,6 +22,11 @@ import {
   Switch,
   TextField,
 } from "@mui/material";
+import Button from "@mui/material/Button";
+import Card from "@mui/material/Card";
+import CardActions from "@mui/material/CardActions";
+import CardContent from "@mui/material/CardContent";
+import Typography from "@mui/material/Typography";
 import { MenuCategory } from "@prisma/client";
 import Image from "next/image";
 import { useRouter } from "next/router";
@@ -164,55 +167,46 @@ const MenuDetail = () => {
   };
 
   return (
-    <Box sx={{ display: "flex", flexDirection: "column" }}>
-      <Box sx={{ display: "flex", justifyContent: "flex-end", mb: 2 }}>
-        <Button variant="outlined" color="error" onClick={() => setOpen(true)}>
-          Delete
-        </Button>
-      </Box>
-      <Box
-        sx={{
-          display: "flex",
-          flexDirection: "column",
-          alignItems: "center",
-          mb: 4,
-        }}
+    <Box
+      sx={{
+        display: "flex",
+        flexDirection: "column",
+        gap: 1,
+      }}
+    >
+      <Image
+        src={menu.assetUrl || "/default-menu.png"}
+        alt="menu-image"
+        width={345}
+        height={300}
+        style={{ borderRadius: 8, objectFit: "cover" }}
+      />
+      <Button
+        variant="outlined"
+        component="label"
+        sx={{ width: 345, bgcolor: "#fff" }}
       >
-        <Image
-          src={menu.assetUrl || "/default-menu.png"}
-          alt="menu-image"
-          width={150}
-          height={150}
-          style={{ borderRadius: 8 }}
-        />
-        <Button
-          variant="outlined"
-          component="label"
-          sx={{ width: "fit-content", mt: 2, bgcolor: "#fff" }}
-        >
-          Upload File
-          <input type="file" hidden onChange={handleMenuImageUpdate} />
-        </Button>
-      </Box>
+        Upload File
+        <input type="file" hidden onChange={handleMenuImageUpdate} />
+      </Button>
       <TextField
         defaultValue={menu.name}
-        sx={{ mb: 2, bgcolor: "ghostwhite" }}
+        sx={{ bgcolor: "ghostwhite", width: 345 }}
         onChange={(evt) => {
           setData({ ...data, id: menuId, name: evt.target.value });
         }}
       />
       <TextField
         defaultValue={menu.price}
-        sx={{ mb: 2, bgcolor: "ghostwhite" }}
+        sx={{ bgcolor: "ghostwhite", width: 345 }}
         onChange={(evt) =>
           setData({ ...data, id: menuId, price: Number(evt.target.value) })
         }
       />
       <FormControl fullWidth>
-        <InputLabel>Menu Category</InputLabel>
         <Select
           multiple
-          sx={{ bgcolor: "info.light" }}
+          sx={{ bgcolor: "info.light", width: 345 }}
           value={data.menuCategoryIds}
           label="Menu Category"
           onChange={handleOnChange}
@@ -244,22 +238,41 @@ const MenuDetail = () => {
           ))}
         </Select>
       </FormControl>
-      <FormControlLabel
-        control={
-          <Switch
-            defaultChecked={data.isAvailable}
-            onChange={(evt, value) => setData({ ...data, isAvailable: value })}
+
+      <Card sx={{ maxWidth: 345 }}>
+        <CardContent>
+          <Typography gutterBottom variant="h5" component="div">
+            Edit your Menu
+          </Typography>
+        </CardContent>
+        <CardActions>
+          <FormControlLabel
+            control={
+              <Switch
+                defaultChecked={data.isAvailable}
+                onChange={(evt, value) =>
+                  setData({ ...data, isAvailable: value })
+                }
+              />
+            }
+            label="Available"
           />
-        }
-        label="Available"
-      />
-      <Button
-        variant="contained"
-        sx={{ mt: 2, width: "fit-content" }}
-        onClick={handleUpdateMenu}
-      >
-        Update
-      </Button>
+          <Button
+            variant="contained"
+            sx={{ width: "fit-content" }}
+            onClick={handleUpdateMenu}
+          >
+            Update
+          </Button>
+          <Button
+            variant="contained"
+            color="error"
+            onClick={() => setOpen(true)}
+          >
+            Delete
+          </Button>
+        </CardActions>
+      </Card>
       <Dialog open={open} onClose={() => setOpen(false)}>
         <DialogTitle>Confirm delete menu</DialogTitle>
         <DialogContent>

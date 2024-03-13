@@ -4,7 +4,6 @@ import { setOpenSnackbar } from "@/store/slices/snackbarSlice";
 import { UpdateAddonOptions } from "@/types/addon";
 import {
   Box,
-  Button,
   Dialog,
   DialogActions,
   DialogContent,
@@ -17,6 +16,11 @@ import {
   SelectChangeEvent,
   TextField,
 } from "@mui/material";
+import Button from "@mui/material/Button";
+import Card from "@mui/material/Card";
+import CardActions from "@mui/material/CardActions";
+import CardContent from "@mui/material/CardContent";
+import Typography from "@mui/material/Typography";
 import { AddonCategory } from "@prisma/client";
 import { useRouter } from "next/router";
 import { useEffect, useState } from "react";
@@ -104,22 +108,17 @@ const AddonDetail = () => {
   };
 
   return (
-    <Box sx={{ display: "flex", flexDirection: "column" }}>
-      <Box sx={{ display: "flex", justifyContent: "flex-end", mb: 2 }}>
-        <Button variant="outlined" color="error" onClick={() => setOpen(true)}>
-          Delete
-        </Button>
-      </Box>
+    <Box sx={{ display: "flex", flexDirection: "column", gap: 2 }}>
       <TextField
         defaultValue={data.name}
-        sx={{ mb: 2, bgcolor: "#fff" }}
+        sx={{ width: 345, bgcolor: "#fff" }}
         onChange={(evt) =>
           setData({ ...data, id: addon.id, name: evt.target.value })
         }
       />
       <TextField
         defaultValue={data.price}
-        sx={{ mb: 2, bgcolor: "#fff" }}
+        sx={{ width: 345, bgcolor: "#fff" }}
         onChange={(evt) =>
           setData({ ...data, id: addon.id, price: Number(evt.target.value) })
         }
@@ -129,7 +128,7 @@ const AddonDetail = () => {
         <Select
           value={data.addonCategoryId}
           label="Addon Category"
-          sx={{ bgcolor: "#fff" }}
+          sx={{ bgcolor: "#fff", width: 345 }}
           onChange={handleOnChange}
           renderValue={(selectedAddonCategoryId) => {
             return (
@@ -154,13 +153,30 @@ const AddonDetail = () => {
           ))}
         </Select>
       </FormControl>
-      <Button
-        variant="contained"
-        sx={{ mt: 2, width: "fit-content" }}
-        onClick={handleUpdateAddon}
-      >
-        Update
-      </Button>
+      <Card sx={{ maxWidth: 345 }}>
+        <CardContent>
+          <Typography gutterBottom variant="h5" component="div">
+            Edit you Addons
+          </Typography>
+        </CardContent>
+        <CardActions>
+          <Button
+            variant="contained"
+            sx={{ width: "fit-content" }}
+            onClick={handleUpdateAddon}
+          >
+            Update
+          </Button>
+          <Button
+            variant="contained"
+            color="error"
+            onClick={() => setOpen(true)}
+          >
+            Delete
+          </Button>
+        </CardActions>
+      </Card>
+
       <Dialog open={open} onClose={() => setOpen(false)}>
         <DialogTitle>Confirm delete addon</DialogTitle>
         <DialogContent>

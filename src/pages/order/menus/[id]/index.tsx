@@ -94,7 +94,6 @@ const MenuDetail = () => {
           alignItems: "center",
           height: "100vh",
           position: "absolute",
-
           left: 0,
           right: 0,
         }}

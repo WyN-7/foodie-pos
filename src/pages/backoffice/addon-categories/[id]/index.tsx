@@ -7,7 +7,6 @@ import { setOpenSnackbar } from "@/store/slices/snackbarSlice";
 import { UpdateAddonCategoryOptions } from "@/types/addonCategory";
 import {
   Box,
-  Button,
   Checkbox,
   Chip,
   Dialog,
@@ -23,6 +22,11 @@ import {
   SelectChangeEvent,
   TextField,
 } from "@mui/material";
+import Button from "@mui/material/Button";
+import Card from "@mui/material/Card";
+import CardActions from "@mui/material/CardActions";
+import CardContent from "@mui/material/CardContent";
+import Typography from "@mui/material/Typography";
 import { Menu } from "@prisma/client";
 import { useRouter } from "next/router";
 import { useEffect, useState } from "react";
@@ -103,24 +107,13 @@ const AddonCategoryDetail = () => {
   };
 
   return (
-    <Box sx={{ display: "flex", flexDirection: "column" }}>
-      <Box
-        sx={{
-          display: "flex",
-          justifyContent: "flex-end",
-          mb: 2,
-        }}
-      >
-        <Button variant="outlined" color="error" onClick={() => setOpen(true)}>
-          Delete
-        </Button>
-      </Box>
+    <Box sx={{ display: "flex", flexDirection: "column", gap: 2 }}>
       <TextField
         defaultValue={addonCategory.name}
-        sx={{ mb: 2, bgcolor: "#fff" }}
+        sx={{ width: 345, bgcolor: "#fff" }}
         onChange={(evt) => setData({ ...data, name: evt.target.value })}
       />
-      <FormControl fullWidth sx={{ my: 1 }}>
+      <FormControl fullWidth sx={{ width: 345 }}>
         <InputLabel>Menus</InputLabel>
         <Select
           multiple
@@ -154,23 +147,41 @@ const AddonCategoryDetail = () => {
           ))}
         </Select>
       </FormControl>
-      <FormControlLabel
-        control={
-          <Checkbox
-            defaultChecked={addonCategory.isRequired}
-            onChange={(evt, value) => setData({ ...data, isRequired: value })}
+
+      <Card sx={{ maxWidth: 345 }}>
+        <CardContent>
+          <Typography gutterBottom variant="h5" component="div">
+            Edit your Addon Category
+          </Typography>
+        </CardContent>
+        <CardActions>
+          <FormControlLabel
+            control={
+              <Checkbox
+                defaultChecked={addonCategory.isRequired}
+                onChange={(evt, value) =>
+                  setData({ ...data, isRequired: value })
+                }
+              />
+            }
+            label="Required"
           />
-        }
-        label="Required"
-        sx={{ mb: 4 }}
-      />
-      <Button
-        variant="contained"
-        sx={{ width: "fit-content" }}
-        onClick={handleUpdateAddonCategory}
-      >
-        Update
-      </Button>
+          <Button
+            variant="contained"
+            sx={{ width: "fit-content" }}
+            onClick={handleUpdateAddonCategory}
+          >
+            Update
+          </Button>
+          <Button
+            variant="contained"
+            color="error"
+            onClick={() => setOpen(true)}
+          >
+            Delete
+          </Button>
+        </CardActions>
+      </Card>
       <Dialog open={open} onClose={() => setOpen(false)}>
         <DialogTitle>Confirm delete addon category</DialogTitle>
         <DialogContent>

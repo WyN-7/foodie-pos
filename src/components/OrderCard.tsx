@@ -3,7 +3,6 @@ import { setOpenSnackbar } from "@/store/slices/snackbarSlice";
 import { OrderItem } from "@/types/order";
 import { Box, Card, MenuItem, Select, Typography } from "@mui/material";
 import { AddonCategory, ORDERSTATUS } from "@prisma/client";
-import Image from "next/image";
 
 interface Props {
   orderItem: OrderItem;
@@ -21,15 +20,15 @@ const OrderCard = ({ orderItem, isAdmin, handleOrderStatuUpdate }: Props) => {
         display: "flex",
         flexDirection: "column",
         justifyContent: "space-between",
-        width: 280,
-        height: 280,
+        width: 300,
+        height: 300,
         mt: 2,
         mr: 2,
       }}
     >
       <Box
         sx={{
-          height: 40,
+          height: 100,
           display: "flex",
           justifyContent: "space-between",
           alignItems: "center",
@@ -38,8 +37,12 @@ const OrderCard = ({ orderItem, isAdmin, handleOrderStatuUpdate }: Props) => {
           px: 1,
         }}
       >
-        <Typography>{orderItem?.menu?.name}</Typography>
-        <Typography>{orderItem?.table?.name}</Typography>
+        <Typography sx={{ color: "#ffe182" }}>
+          {orderItem?.menu?.name}
+        </Typography>
+        <Typography sx={{ color: "#ffe182" }}>
+          {orderItem?.table?.name}
+        </Typography>
       </Box>
       <Box sx={{ px: 2 }}>
         <Box
@@ -104,13 +107,6 @@ const OrderCard = ({ orderItem, isAdmin, handleOrderStatuUpdate }: Props) => {
           }}
         >
           <Typography sx={{ fontWeight: "bold" }}>Status: </Typography>
-          <Image
-            src={"/load.gif"}
-            alt="cooking"
-            width={30}
-            height={30}
-            style={{ marginLeft: 10, opacity: "50%" }}
-          />
           {isAdmin ? (
             <Box
               sx={{

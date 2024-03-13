@@ -44,7 +44,15 @@ const OrderApp = () => {
   };
 
   return (
-    <Box sx={{ position: "relative", zIndex: 5, px: 2 }}>
+    <Box
+      sx={{
+        position: "relative",
+        zIndex: 5,
+        px: 2,
+        display: "flex",
+        flexDirection: "column",
+      }}
+    >
       <Box>
         <Tabs
           TabIndicatorProps={{
@@ -56,9 +64,9 @@ const OrderApp = () => {
           variant="scrollable"
           sx={{
             pb: 1,
-            position: "sticky", // Fixed position for the tabs
-            width: "100%", // Take up the full width
-            zIndex: 0, // Adjust the zIndex to be above other elements
+            position: "sticky",
+            width: "100%",
+            zIndex: 0,
             ".Mui-selected": {
               color: "#1B9C85",
               fontWeight: "bold",
@@ -80,8 +88,8 @@ const OrderApp = () => {
           pt: 2,
           display: "flex",
           flexWrap: "wrap",
-          maxHeight: "300px", // Set the maximum height for the scroll bar to appear
-          overflowY: "auto", // Enable vertical
+          maxHeight: { xl: 350 },
+          overflowY: "auto",
         }}
       >
         {renderMenus()}

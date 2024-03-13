@@ -3,13 +3,17 @@ import { deleteTable, updateTable } from "@/store/slices/tableSlice";
 import { UpdateTableOptions } from "@/types/table";
 import {
   Box,
-  Button,
   Dialog,
   DialogActions,
   DialogContent,
   DialogTitle,
   TextField,
 } from "@mui/material";
+import Button from "@mui/material/Button";
+import Card from "@mui/material/Card";
+import CardActions from "@mui/material/CardActions";
+import CardContent from "@mui/material/CardContent";
+import Typography from "@mui/material/Typography";
 import { useRouter } from "next/router";
 import { useEffect, useState } from "react";
 
@@ -48,26 +52,38 @@ const TableDetail = () => {
   };
 
   return (
-    <Box sx={{ display: "flex", flexDirection: "column" }}>
-      <Box sx={{ display: "flex", justifyContent: "flex-end", mb: 2 }}>
-        <Button variant="outlined" color="error" onClick={() => setOpen(true)}>
-          Delete
-        </Button>
-      </Box>
+    <Box sx={{ display: "flex", gap: 2, flexDirection: "column" }}>
       <TextField
         defaultValue={data.name}
-        sx={{ mb: 2, bgcolor: "#fff" }}
+        sx={{ bgcolor: "#fff", width: 345 }}
         onChange={(evt) =>
           setData({ ...data, id: table.id, name: evt.target.value })
         }
       />
-      <Button
-        variant="contained"
-        sx={{ mt: 2, width: "fit-content" }}
-        onClick={handleUpdateTable}
-      >
-        Update
-      </Button>
+      <Card sx={{ maxWidth: 345 }}>
+        <CardContent>
+          <Typography gutterBottom variant="h5" component="div">
+            Edit your table
+          </Typography>
+        </CardContent>
+        <CardActions>
+          <Button
+            variant="contained"
+            sx={{ width: "fit-content" }}
+            onClick={handleUpdateTable}
+          >
+            Update
+          </Button>
+          <Button
+            variant="contained"
+            color="error"
+            onClick={() => setOpen(true)}
+          >
+            Delete
+          </Button>
+        </CardActions>
+      </Card>
+
       <Dialog open={open} onClose={() => setOpen(false)}>
         <DialogTitle>Confirm delete table</DialogTitle>
         <DialogContent>

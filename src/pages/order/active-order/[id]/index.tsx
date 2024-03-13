@@ -44,7 +44,6 @@ const ActiveOrder = () => {
           bgcolor: "teal",
           borderRadius: 2,
           mx: { lg: 30, xs: "auto" },
-          width: { lg: 600, xs: 300 },
           height: 125,
           flexDirection: "column",
           alignItems: "center",

@@ -8,6 +8,9 @@ import { UpdateMenuCategoryOptions } from "@/types/menuCategory";
 import {
   Box,
   Button,
+  Card,
+  CardActions,
+  CardContent,
   Dialog,
   DialogActions,
   DialogContent,
@@ -15,6 +18,7 @@ import {
   FormControlLabel,
   Switch,
   TextField,
+  Typography,
 } from "@mui/material";
 import { useRouter } from "next/router";
 import { useEffect, useState } from "react";
@@ -113,35 +117,56 @@ const MenuCategoryDetail = () => {
   };
 
   return (
-    <Box sx={{ display: "flex", flexDirection: "column" }}>
-      <Box sx={{ display: "flex", justifyContent: "flex-end", mb: 2 }}>
-        <Button variant="contained" color="error" onClick={() => setOpen(true)}>
-          Delete
-        </Button>
-      </Box>
+    <Box
+      sx={{
+        display: "flex",
+        flexDirection: "column",
+      }}
+    >
       <TextField
         defaultValue={menuCategory.name}
-        sx={{ mb: 2, bgcolor: "#fff" }}
+        sx={{ mb: 2, bgcolor: "#fff", width: 345 }}
         onChange={(evt) =>
           setData({ ...data, id: menuCategoryId, name: evt.target.value })
         }
       />
-      <FormControlLabel
-        control={
-          <Switch
-            defaultChecked={data.isAvailable}
-            onChange={(evt, value) => setData({ ...data, isAvailable: value })}
+      <Card sx={{ maxWidth: 345 }}>
+        <CardContent>
+          <Typography gutterBottom variant="h5" component="div">
+            Edit your Menu Category
+          </Typography>
+        </CardContent>
+        <CardActions>
+          <FormControlLabel
+            control={
+              <Switch
+                defaultChecked={data.isAvailable}
+                onChange={(evt, value) =>
+                  setData({ ...data, isAvailable: value })
+                }
+              />
+            }
+            label="Available"
           />
-        }
-        label="Available"
-      />
-      <Button
-        variant="contained"
-        sx={{ mt: 2, width: "fit-content" }}
-        onClick={handleUpdateMenuCategory}
-      >
-        Update
-      </Button>
+          <Box sx={{ display: "flex", gap: 2 }}>
+            <Button
+              variant="contained"
+              sx={{ width: "fit-content" }}
+              onClick={handleUpdateMenuCategory}
+            >
+              Update
+            </Button>
+            <Button
+              variant="contained"
+              sx={{ width: "fit-content" }}
+              color="error"
+              onClick={() => setOpen(true)}
+            >
+              Delete
+            </Button>
+          </Box>
+        </CardActions>
+      </Card>
       <Dialog open={open} onClose={() => setOpen(false)}>
         <DialogTitle>Confirm delete menu category</DialogTitle>
         <DialogContent>

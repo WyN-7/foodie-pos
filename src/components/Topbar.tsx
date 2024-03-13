@@ -67,48 +67,6 @@ const Topbar = () => {
             <MenuIcon sx={{ fontSize: "30px", color: "#E8F6EF" }} />
           </IconButton>
           <Box sx={{ display: "flex", flexDirection: "row", gap: 2.5 }}>
-            {/*  <Button
-              sx={{
-                display: { xs: "none", sm: "block" },
-                fontSize: { xs: "12px", md: "16px" },
-                color: "#fff",
-                cursor: "pointer",
-                borderRadius: 2,
-                bgcolor: theme === "dark" ? "info.dark" : "info.dark",
-                px: 1,
-                transition: "transform 0.3s ease-in-out",
-                "&:hover": {
-                  bgcolor: theme === "dark" ? "secondary.main" : "error.light",
-                  transform: "scale(1.1)",
-                },
-                fontFamily: "poppins",
-              }}
-              onClick={() => router.push("/")}
-            >
-              Home
-            </Button> */}
-            {/*  <Button
-              sx={{
-                fontSize: { xs: "10px", md: "15px" },
-                color: "#fff",
-                bgcolor: theme === "dark" ? "info.dark" : "info.dark",
-                p: 1,
-                cursor: "pointer",
-                fontFamily: "poppins",
-                borderRadius: 2,
-                display: { xs: "none", sm: "block" },
-                transition: "transform 0.3s ease-in-out",
-                "&:hover": {
-                  bgcolor: theme === "dark" ? "secondary.main" : "error.light",
-                  transform: "scale(1.1)",
-                },
-              }}
-              onClick={() => {
-                router.push(`/order?tableId=1`);
-              }}
-            >
-              Order App
-            </Button> */}
             <Button
               sx={{
                 display: { xs: "none", sm: "block" },
@@ -118,6 +76,7 @@ const Topbar = () => {
                 p: 1,
                 borderRadius: 2,
                 justifyContent: "center",
+                alignItems: "center",
                 cursor: "pointer",
                 fontFamily: "poppins",
                 transition: "transform 0.3s ease-in-out",
