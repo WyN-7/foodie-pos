@@ -29,7 +29,6 @@ interface Props {
   open: boolean;
   setOpen: Dispatch<SetStateAction<boolean>>;
 }
-
 const defaultNewMenu = {
   name: "",
   price: 0,
