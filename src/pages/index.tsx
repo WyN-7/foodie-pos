@@ -5,6 +5,7 @@ import Hero from "@/components/Hero";
 import Testimonials from "@/components/Testimonials";
 import { Box } from "@mui/material";
 
+/* test test */
 const FoodiePOS = () => {
   return (
     <Box
